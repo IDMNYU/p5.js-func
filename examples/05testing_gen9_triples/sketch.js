@@ -73,9 +73,10 @@ function initBufferSource()
   testArr = gen.fillFloat32Array("triples", tabsize, waveargs);
   buf.fromArray(testArr);
   si = buf.length/Tone.context.sampleRate; // sampling increment
-  bufplayer = new Tone.BufferSource(buf).toMaster().start();
+  bufplayer = new Tone.BufferSource(buf).toMaster();
   bufplayer.loop = true;
   bufplayer.playbackRate.value = si*440;
+  bufplayer.start();
 }
 
 

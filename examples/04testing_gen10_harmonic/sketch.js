@@ -6,7 +6,7 @@ var gen = new p5.Gen();
 var speed = 0.005;
 var numharms = 16;
 var tabsize = 2048;
-var harmonics = [1., 0.3, 0.3, 0.,
+var harmonics = [1., 0.3, 0.2, 0.,
                 0., 0., 0., 0.,
                 0., 0., 0., 0.,
                 0., 0., 0., 0.];
@@ -80,9 +80,10 @@ function initBufferSource()
   testArr = gen.fillFloat32Array("harmonics", tabsize, harmonics);
   buf.fromArray(testArr);
   si = buf.length/Tone.context.sampleRate; // sampling increment
-  bufplayer = new Tone.BufferSource(buf).toMaster().start();
+  bufplayer = new Tone.BufferSource(buf).toMaster();
   bufplayer.loop = true;
   bufplayer.playbackRate.value = si*440;
+  bufplayer.start();
 }
 
 function mousePressed()
