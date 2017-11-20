@@ -23,7 +23,7 @@ function setup()
     fplot(q, "color: blue; font-size:9px;");
   }
 
-  // var q = ease.fillArray('hermite', 80);
+  // var q = ease.fillArray('generalizedLinearMap', 80);
   // console.log(q);
   // fplot(q);
 
