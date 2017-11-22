@@ -15,7 +15,7 @@ function setup()
 
   noLoop();
 
-  var q = gen.fillArray('window', 80, 'squircular', [0.5, 2]);
+  var q = gen.fillArray('window', 80, 'slidinghann-poisson', [0.5, 0.9]);
   console.log(q);
   fplot(q);
 
