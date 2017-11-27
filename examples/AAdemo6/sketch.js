@@ -7,10 +7,9 @@ var wstep, hstep;
 var p; // array
 var z = 100; // zoom factor in pixels
 
-
 var estr = [];
 
-// some equations h/t paul bourke
+// some equations from paul bourke
 estr[0] = [ '-Math.sinh(2*su*HALF_PI) / (cos(2*4*su*HALF_PI) - Math.cosh(2*su*HALF_PI))',
             'sin(2*4*su*HALF_PI) / (cos(2*4*su*HALF_PI) - Math.cosh(2*su*HALF_PI))'
           ]; // http://paulbourke.net/geometry/cothspiral/
@@ -23,19 +22,18 @@ estr[2] = [ 'cos(u*PI*24.) * (exp(cos(u*PI*24.)) - 2 * cos(4 * u*PI*24.) - pow(s
 estr[3] = [ '2*cos(u*TWO_PI)+cos((3-1)*u*TWO_PI)',
             '2*sin(u*TWO_PI)+sin((3-1)*u*TWO_PI)'
           ]; // http://paulbourke.net/geometry/cardioid/
-// estr[4] = [ '5.*(1. + sin(11. * u*21.*PI / 5.)) - \
-//             4. *\
-//             sin4(17. * u*21.*PI / 3.) *\
-//             sin8(2. * cos(3. * u*21.*PI) - 28. * u*21.*PI) *\
-//             cos(u*21.*PI)',
-//             '5*(1. + sin(11. * u*21.*PI / 5.)) - \
-//             4 *\
-//             sin4(17. * u*21.*PI / 3.) *\
-//             sin8(2. * cos(3. * u*21.*PI) - 28. * u*21.*PI) *\
-//             sin(u*21.*PI)'
-//           ]; // http://paulbourke.net/geometry/chrysanthemum/
+estr[4] = [ '(5.*(1. + sin(11. * u*21.*PI / 5.)) - \
+            4. *\
+            sin4(17. * u*21.*PI / 3.) *\
+            sin8(2. * cos(3. * u*21.*PI) - 28. * u*21.*PI)) *\
+            cos(u*21.*PI)*0.3',
+            '(5.*(1. + sin(11. * u*21.*PI / 5.)) - \
+            4. *\
+            sin4(17. * u*21.*PI / 3.) *\
+            sin8(2. * cos(3. * u*21.*PI) - 28. * u*21.*PI)) *\
+            sin(u*21.*PI)*0.3'
+          ]; // http://paulbourke.net/geometry/chrysanthemum/
 
-//(r/20+.2)*sin(r*TWOPI/7)
 var current = 0;
 
 function setup()
