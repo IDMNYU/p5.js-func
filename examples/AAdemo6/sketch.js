@@ -85,3 +85,14 @@ function keyTyped()
 {
   doit();
 }
+
+
+// sin4 function
+sin4 = function(_x) {
+  return(sin(_x)*sin(_x)*sin(_x)*sin(_x));
+}
+
+// sin8 function
+sin8 = function(_x) {
+  return(sin(_x)*sin(_x)*sin(_x)*sin(_x)*sin(_x)*sin(_x)*sin(_x)*sin(_x));
+}
