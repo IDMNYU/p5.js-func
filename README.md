@@ -108,4 +108,15 @@ fplot(ip, "color: red; font-size:9px;"); // plot
 console.log(op); // print
 fplot(op, "color: blue; font-size:9px;"); // plot
 ```
+## p5.FastFourierTransform Example
+```
+var fft = new p5.FastFourierTransform(512, 60); // 512-point FFT calibrated to 60Hz sampling rate (screen rate)
+var g = new p5.Gen(); // function generator object
+
+var ip = g.fillArray("waveform", 512, "saw"); // input array
+fft.forward(ip); // compute FFT
+var op = fft.spectrum; // output array with 256 points of magnitude
+console.log(op); // print
+fplot(op, "color: green; font-size:9px;"); // plot
+```
 
