@@ -18,7 +18,7 @@ This is a p5 extension that provides new objects and utilities for function gene
 The library also contains a number of utility functions for p5:
 
 *  imap() : constrainted integer mapping function
-*  normalizeArray()/resizeArray/multiplyArray/addArray/sumArray : array functions
+*  normalizeArray()/resizeArray()/multiplyArray()/addArray()/sumArray() : array functions
 *  f2ib() / ib2f : int<->float casting with bit parity
 *  sinc() : sinc (sinus cardinalis) function
 *  besselI0() : bessel function
