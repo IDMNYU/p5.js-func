@@ -19,7 +19,7 @@ The library also contains a number of utility functions for p5:
 
 *  imap() : constrainted integer mapping function
 *  normalizeArray()/resizeArray()/multiplyArray()/addArray()/sumArray() : array functions
-*  f2ib() / ib2f : int<->float casting with bit parity
+*  f2ib() / ib2f() : int<->float casting with bit parity
 *  sinc() : sinc (sinus cardinalis) function
 *  besselI0() : bessel function
 *  fplot() : formattable console plot of any array
@@ -82,3 +82,11 @@ fplot(bar, "color: green; font-size:9px;"); // plot
 console.log(biz); // print
 fplot(biz, "color: blue; font-size:9px;"); // plot
 ```
+## p5.ArrayEval Example
+```
+var a = new p5.ArrayEval(); // array evaluation object
+a.eval('u', 10); // generate a 10-point 'normal map' (0 to 1)
+a.eval2d(['su', 'sv'], 20, 20); // generate a 20x20 array containing a 2-value signed normal map (-1 to 1)
+a.eval3d('sqrt(su*su+sv*sv+sw*sw)', 8, 8, 8); // generate a 8x8x8 array containing a volumetric distance function
+```
+
