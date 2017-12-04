@@ -2,7 +2,7 @@
 Function Generators for p5.js (http://p5js.org)
 
 R. Luke DuBois (dubois@nyu.edu)   
-[Integrated Digital Media](http://idm.engineering.nyu.edu) / [Brooklyn Experimental Media Center](http://bxmc.poly.edu) 
+[Integrated Digital Media](http://idm.engineering.nyu.edu) / [Brooklyn Experimental Media Center](http://bxmc.poly.edu)    
 NYU
 
 Shiffman, it's pronounced *funk*.
