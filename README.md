@@ -31,7 +31,7 @@ Most of this code is adapted from other sources, notably:
 *  Robert Bristow-Johnson's Audio EQ Cookbook: http://www.musicdsp.org/files/Audio-EQ-Cookbook.txt
 *  Corban Brook's dsp.js: https://github.com/corbanbrook/dsp.js/
 
-## Simple p5.Gen Example (direct evaluation)
+## p5.Gen Example (direct evaluation)
 ```
 var g = new p5.Gen(); // function generator object
 // evaluate the value 20% (0.2) into a wavetable defined by harmonic strengths 1., 0.5, and 0.3:
@@ -41,7 +41,7 @@ g.bpf(0.5, [0, 0, 1, 1, 2, 0]); // 1.
 // evaluate the value 3/4ths (0.75) into a hamming window function
 g.window(0.75, "hamming"); 0.5400000000000001
 ```
-## Simple p5.Gen Example (array filling)
+## p5.Gen Example (array filling)
 ```
 var g = new p5.Gen(); // function generator object
 // assign 'foo' to a 512-point Array containing the wavetable defined by harmonic strengths 1., 0.5, and 0.3:
@@ -50,6 +50,31 @@ var foo = g.fillArray("harmonics", 512, [1.0, 0.5, 0.3]);
 var bar = g.fillFloat32Array("waveform", 1000, "sine");
 // assign 100 points of low-weighted random numbers to the Float64Array 'biz':
 var biz = g.fillFloat64Array("random", 100, "low");
+console.log(foo); // print
+fplot(foo, "color: red; font-size:9px;"); // plot
+console.log(bar); // print
+fplot(bar, "color: green; font-size:9px;"); // plot
+console.log(biz); // print
+fplot(biz, "color: blue; font-size:9px;"); // plot
+```
+## p5.Ease Example (direct evaluation)
+```
+var e = new p5.Ease(); // easing function object
+e.listAlgos(); // return an array listing all the algorithms
+// calculate the value halfway (0.5) through the 'circularIn' easing function:
+e.circularIn(0.5); // 0.1339745962155614
+// calculate the value a quarter (0.25) through the 'doubleCircularOgee' function with a coefficient of 0.5:
+e.doubleCircularOgee(0.25, 0.5); // 0.4330127018922193
+```
+## p5.Ease Example (array filling)
+```
+var e = new p5.Ease(); // easing function object
+// assign 'foo' to a 10-point Array filled with a "doubleQuadraticBezie" easing function:
+var foo = e.fillArray("doubleQuadraticBezier", 10);
+// assign 'bar' to a 100-point Float32Array filled with a "smoothStep" easing function:
+var bar = e.fillFloat32Array("smoothStep", 100);
+// assign a 1000-point "doubleCircularSigmoid" with a coefficient of 0.8 to the Float64Array 'biz':
+var biz = e.fillFloat64Array("doubleCircularSigmoid", 1000, 0.8);;
 console.log(foo); // print
 fplot(foo, "color: red; font-size:9px;"); // plot
 console.log(bar); // print
