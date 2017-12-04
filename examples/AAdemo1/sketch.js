@@ -1,6 +1,6 @@
 // I<3DM rld
 
-var gen = new p5.Gen();
+var g = new p5.Gen();
 var t = 0.;
 var doclear;
 
@@ -69,7 +69,7 @@ function draw()
 
 
   //harmonics
-  h_tab = gen.fillArray(h_algo, h_np, h_args);
+  h_tab = g.fillArray(h_algo, h_np, h_args);
 
   translate(0, 0);
   drawTab(h_tab, h_algo, h_args, h_np);
@@ -82,7 +82,7 @@ function draw()
   }
 
   //waveform
-  w_tab = gen.fillArray(w_algo, w_np, w_args);
+  w_tab = g.fillArray(w_algo, w_np, w_args);
 
   translate(w_u, 0);
   drawTab(w_tab, w_algo, w_args, w_np);
@@ -91,7 +91,7 @@ function draw()
   if(frameCount%120==0) w_ptr = (w_ptr+1) % w_incr.length;
 
   //envelope
-  e_tab = gen.fillArray(e_algo, e_np, e_args);
+  e_tab = g.fillArray(e_algo, e_np, e_args);
 
   translate(-w_u, h_u);
   drawTab(e_tab, e_algo, e_args, e_np);
@@ -100,7 +100,7 @@ function draw()
   if(frameCount%100==0) e_ptr = (e_ptr+1) % e_incr.length;
 
   //cheby
-  c_tab = gen.fillArray(c_algo, c_np, c_args);
+  c_tab = g.fillArray(c_algo, c_np, c_args);
 
   translate(w_u, 0);
   drawTab(c_tab, c_algo, c_args, c_np);
@@ -113,7 +113,7 @@ function draw()
   }
 
   //window
-  wi_tab = gen.fillArray(wi_algo, wi_np, wi_args);
+  wi_tab = g.fillArray(wi_algo, wi_np, wi_args);
 
   translate(w_u, 0);
   drawTab(wi_tab, wi_algo, wi_args, wi_np);
@@ -122,7 +122,7 @@ function draw()
   if(frameCount%130==0) wi_ptr = (wi_ptr+1) % wi_incr.length;
 
   //random
-  r_tab = gen.fillArray(r_algo, r_np, r_args);
+  r_tab = g.fillArray(r_algo, r_np, r_args);
 
   translate(0, -h_u);
   drawTab(r_tab, r_algo, r_args, r_np);
@@ -143,7 +143,6 @@ function drawTab(_tab, _algo, _args, _np)
   stroke(0, 0, 0);
   noFill();
   rect(width*0.25, height*0.25, width*0.5, height*0.5);
-
 
   noStroke();
   fill(0);
@@ -166,7 +165,7 @@ function drawTab(_tab, _algo, _args, _np)
   }
   //text(as, width*0.5, height*0.23);
   //text(_np + " points", width*0.5, height*0.8);
-  var ss = 'var t = g.fillArray(\''+_algo + '\', ' + _np + ', ' + as + ');';
+  var ss = 'g.fillArray(\''+_algo + '\', ' + _np + ', ' + as + ');';
   textAlign(CENTER);
   textSize(32);
   text(ss, width*0.5, height*0.82);

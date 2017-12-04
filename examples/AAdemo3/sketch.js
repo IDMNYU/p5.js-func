@@ -2,8 +2,8 @@
 // <3 rld
 
 var p = 0.;
-var ease = new p5.Ease();
-var styles = ease.listAlgos();
+var e = new p5.Ease();
+var styles = e.listAlgos();
 var curstyle;
 var speed = 0.01;
 
@@ -38,7 +38,7 @@ function draw()
   fill(0);
   textAlign(LEFT);
 
-  var q = ease[curstyle](p);
+  var q = e[curstyle](p);
 
   var ss = 'var e = new p5.Ease();';
   text(ss, width*0.3, height*0.1);

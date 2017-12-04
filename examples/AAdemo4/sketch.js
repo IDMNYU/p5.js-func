@@ -2,7 +2,7 @@
 // <3 rld
 
 var p = 0.;
-var gen = new p5.Gen();
+var g = new p5.Gen();
 var speed = 0.01;
 
 var osc1, osc2;
@@ -35,7 +35,7 @@ function draw()
   fill(0);
   textAlign(LEFT);
 
-  var q = gen.window(p, "hamming");
+  var q = g.window(p, "hamming");
 
   var ss = 'var g = new p5.Gen();';
   text(ss, width*0.3, height*0.1);

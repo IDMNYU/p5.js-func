@@ -1,10 +1,10 @@
 // I<3DM rld
 
-var ease = new p5.Ease();
+var e = new p5.Ease();
 var t = 0.;
 var doclear;
 
-var styles = ease.listAlgos();
+var styles = e.listAlgos();
 var curstyle;
 
 // curstyle = styles[floor(random(styles.length))];
@@ -67,39 +67,38 @@ function draw()
 
   scale(sc);
 
-
   //1
-  a_tab = ease.fillArray(a_algo, 1024);
+  a_tab = e.fillArray(a_algo, 1024);
   translate(0, 0);
   drawTab(a_tab, a_algo, a_np);
   if(frameCount%120==0) a_algo = styles[floor(random(styles.length))];
 
   //2
-  b_tab = ease.fillArray(b_algo, b_np);
+  b_tab = e.fillArray(b_algo, b_np);
   translate(w_u, 0);
   drawTab(b_tab, b_algo, b_np);
   if(frameCount%120==0) b_algo = styles[floor(random(styles.length))];
 
   //3
-  c_tab = ease.fillArray(c_algo, c_np);
+  c_tab = e.fillArray(c_algo, c_np);
   translate(-w_u, h_u);
   drawTab(c_tab, c_algo, c_np);
   if(frameCount%120==0) c_algo = styles[floor(random(styles.length))];
 
   //4
-  d_tab = ease.fillArray(d_algo, d_np);
+  d_tab = e.fillArray(d_algo, d_np);
   translate(w_u, 0);
   drawTab(d_tab, d_algo, d_np);
   if(frameCount%120==0) d_algo = styles[floor(random(styles.length))];
 
   //5
-  e_tab = ease.fillArray(e_algo, e_np);
+  e_tab = e.fillArray(e_algo, e_np);
   translate(w_u, 0);
   drawTab(e_tab, e_algo, e_np);
   if(frameCount%120==0) e_algo = styles[floor(random(styles.length))];
 
   //6
-  f_tab = ease.fillArray(f_algo, f_np);
+  f_tab = e.fillArray(f_algo, f_np);
   translate(0, -h_u);
   drawTab(f_tab, f_algo, f_np);
   if(frameCount%120==0) f_algo = styles[floor(random(styles.length))];
@@ -118,12 +117,10 @@ function drawTab(_tab, _algo, _np)
   noFill();
   rect(width*0.25, height*0.25, width*0.5, height*0.5);
 
-
   noStroke();
   fill(0);
 
-
-  var ss = 'var t = e.fillArray(\''+_algo + '\', ' + _np + ');';
+  var ss = 'e.fillArray(\''+_algo + '\', ' + _np + ');';
   textAlign(CENTER);
   textSize(32);
   text(ss, width*0.5, height*0.82);
