@@ -34,18 +34,26 @@ Most of this code is adapted from other sources, notably:
 ## Simple p5.Gen Example (direct evaluation)
 ```
 var g = new p5.Gen(); // function generator object
-g.harmonics(0.2, [1.0, 0.5, 0.3]); // evaluate the value 20% (0.2) into a wavetable with the first three harmonic strengths set to 1., 0.5, and 0.3
-// 1.0686135667536483
-
+// evaluate the value 20% (0.2) into a wavetable defined by harmonic strengths 1., 0.5, and 0.3:
+g.harmonics(0.2, [1.0, 0.5, 0.3]); // 1.0686135667536483
+// evaluate the value halfway (0.5) into a breakpoint function rising from 0 to 1 then falling to 0:
+g.bpf(0.5, [0, 0, 1, 1, 2, 0]); // 1.
+// evaluate the value 3/4ths (0.75) into a hamming window function
+g.window(0.75, "hamming"); 0.5400000000000001
 ```
-## Simple Example (Recognition)
+## Simple p5.Gen Example (array filling)
 ```
-var foo = new p5.SpeechRec(); // speech recognition object (will prompt for mic access)
-foo.onResult = showResult; // bind callback function to trigger when speech is recognized
-foo.start(); // start listening
-
-function showResult()
-{
-  console.log(foo.resultString); // log the result
-}
+var g = new p5.Gen(); // function generator object
+// assign 'foo' to a 512-point Array containing the wavetable defined by harmonic strengths 1., 0.5, and 0.3:
+var foo = g.fillArray("harmonics", 512, [1.0, 0.5, 0.3]);
+// assign 'bar' to a 1000-point Float32Array containing a single sine wave:
+var bar = g.fillFloat32Array("waveform", 1000, "sine");
+// assign 100 points of low-weighted random numbers to the Float64Array 'biz':
+var biz = g.fillFloat64Array("random", 100, "low");
+console.log(foo); // print
+fplot(foo, "color: red; font-size:9px;"); // plot
+console.log(bar); // print
+fplot(bar, "color: green; font-size:9px;"); // plot
+console.log(biz); // print
+fplot(biz, "color: blue; font-size:9px;"); // plot
 ```
