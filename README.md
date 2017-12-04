@@ -87,7 +87,7 @@ fplot(biz, "color: blue; font-size:9px;"); // plot
 var a = new p5.ArrayEval(); // array evaluation object
 a.eval('u', 10); // generate a 10-point 'normal map' (0 to 1)
 a.eval2d(['su', 'sv'], 20, 20); // generate a 20x20 array containing a 2-value signed normal map (-1 to 1)
-a.eval3d('sqrt(su*su+sv*sv+sw*sw)', 8, 8, 8); // generate a 8x8x8 array containing a volumetric distance function
+a.eval3d('sqrt(su*su+sv*sv+sw*sw)', 8, 8, 8); // fill an 8x8x8 array with a volumetric distance function
 ```
 ## p5.Filt Example
 ```
