@@ -24,7 +24,7 @@ The library also contains a number of utility functions for p5:
 *  besselI0() : bessel function
 *  fplot() : formattable console plot of any array
  
-Most of this code is adapted from other sources, notably:
+Quite a bit of this code is adapted from other sources, notably:
 *  RTcmix Scorefile Commands: http://rtcmix.org/reference/scorefile/
 *  Robert Penner's Easing Functions: http://robertpenner.com/easing/
 *  Golan Levin's Pattern Master: https://github.com/golanlevin/Pattern_Master
