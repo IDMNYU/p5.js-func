@@ -20,7 +20,7 @@ Shiffman, it's pronounced *funk*.
 The library also contains a number of utility functions for p5:
 
 *  **imap()** : constrainted integer mapping function
-*  **normalizeArray()** / **resizeArray()** / **multiplyArray()** / **addArray()** / **sumArray()** : array utility functions
+*  **createArray()** / **normalizeArray()** / **resizeArray()** / **multiplyArray()** / **addArray()** / **sumArray()** : array utility functions
 *  **f2ib()** / **ib2f()** : int<->float coercion with bit parity
 *  **sinc()** : sinc (*sinus cardinalis*) function
 *  **besselI0()** : bessel function
@@ -126,28 +126,158 @@ fplot(op, "color: green; font-size:9px;"); // plot
 ```
 ## Reference
 
-# p5.Gen
+### p5.Gen
+*methods*
+* harmonics(x, args):
+* triples(x, args):
+* chebyshev(x, args):
+* bpf(x, args):
+* window(x, type, args):
+* random(x, type):
+* waveform(x, type):
+* listAlgos():
+* fillArray(algo, len, args, fourth):
+* fillFloat32Array(algo, len, args, fourth):
+* fillFloat64Array(algo, len, args, fourth):
 
-constructor
-* default_voice: optional argument to set the default synthesizer voice by number (see listVoices()) or by name.
-methods
-* cancel(): silently cancels the current utterance and clears any queued utterances.
-* listVoices(): debugging statement. Lists available synthesis voices to the JavaScript console.
-* pause(): pause the current utterance. The onPause() callback will fire.
-* resume(): resumes the current utterance. The onResume() callback will fire.
-* setLang(language): sets the language interpreter for the synthesizer voice. Argument is BCP-47; Default is 'en-US'.
-* setPitch(pitch): sets playback pitch of synthesized speech from 0.01 (very low) to 2.0 (very high). Default is 1.0; not supported by all browser / OS combinations.
-* setRate(rate): sets rate of speech production from 0.1 (very slow) to 2.0 (very fast). Default is 1.0; not supported by all browser / OS combinations.
-* setVoice(voice): sets synthesizer voice by number (see listVoices()) or by name; equivalent to the default_voice parameter passed with the constructor.
-* setVolume(volume): sets synthesizer volume in the range of 0.0 (silent) to 1.0 (default=max volume).
-* speak(utterance): instructs the synthesizer to speak the string encoded in utterance. Depending on the interrupt property, additional calls to speak() will queue after or interrupt speech actively being synthesized. When synthesis begins, the onStart() callback will fire; when synthesis ends, the onEnd() callback will fire.
-* stop(): stops the current utterance. The onEnd() callback will fire.
-properties
-* interrupt: boolean to set whether the speak() method will interrupt (true) or queue after (false = default) existing speech currently being synthesized.
-* onEnd: function sets callback to fire when an utterance is finished.
-* onLoad: function sets callback to fire when synthesis voices are loaded.
-* onPause: function sets callback to fire when an utterance is paused.
-* onResume: function sets callback to fire when an utterance is resumed.
-* onStart: function sets callback to fire when synthesis is begun.
+### p5.Ease
+*methods*
+* adjustableCenterDoubleExponentialSigmoid(x, a, b): 
+* backIn(x): 
+* backInOut(x): 
+* backOut(x): 
+* bounceIn(x): 
+* bounceInOut(x): 
+* bounceOut(x): 
+* boxcar(x): 
+* brycesCubic(x, n): 
+* catmullRomInterpolate(x, a, b): 
+* circularArcThroughAPoint(x, a, b): 
+* circularFillet(x, a, b, c): 
+* circularIn(x): 
+* circularInOut(x): 
+* circularOut(x): 
+* cosineApproximation(x): 
+* cubicBezier(x, a, b, c, d): 
+* cubicBezierThrough2Points(x, a, b, c, d): 
+* cubicIn(x): 
+* cubicInOut(x): 
+* cubicOut(x): 
+* dampedSinusoid(x, a): 
+* dampedSinusoidReverse(x, a): 
+* doubleCircularOgee(x, a): 
+* doubleCircularSigmoid(x, a): 
+* doubleCubicOgee(x, a, b): 
+* doubleCubicOgeeSimplified(x, a, b): 
+* doubleEllipticOgee(x, a, b): 
+* doubleEllipticSigmoid(x, a, b): 
+* doubleExponentialOgee(x, a): 
+* doubleExponentialSigmoid(x, a): 
+* doubleLinear(x, a, b): 
+* doubleOddPolynomialOgee(x, a, b, n): 
+* doublePolynomialSigmoid(x, n): 
+* doubleQuadraticBezier(x, a, b, c, d): 
+* doubleQuadraticSigmoid(x): 
+* doubleSquircularOgee(x, a, n): 
+* doubleSquircularSigmoid(x, a, n): 
+* elasticIn(x): 
+* elasticInOut(x): 
+* elasticOut(x): 
+* exponentialEmphasis(x, a): 
+* exponentialIn(x): 
+* exponentialInOut(x): 
+* exponentialOut(x): 
+* exponentialSmoothedStaircase(x, a, n): 
+* fastSquareRoot(x): 
+* generalSigmoidLogitCombo(x, a, b): 
+* generalizedLinearMap(x, a, b, c, d): 
+* gompertz(x, a): 
+* hermite(x, a, b, c, d): 
+* hermite2(x, a, b, c, d): 
+* iterativeSquareRoot(x): 
+* linear(x): 
+* maclaurinCosine(x): 
+* normalizedErf(x): 
+* normalizedInverseErf(x): 
+* normalizedLogisticSigmoid(x, a): 
+* normalizedLogit(x, a): 
+* parabolaThroughAPoint(x, a, b): 
+* quadraticBezier(x, a, b): 
+* quadraticBezierStaircase(x, a, n): 
+* quadraticIn(x): 
+* quadraticInOut(x): 
+* quadraticOut(x): 
+* quartic(x, a, b): 
+* quarticIn(x): 
+* quarticInOut(x): 
+* quarticOut(x): 
+* quinticIn(x): 
+* quinticInOut(x): 
+* quinticOut(x): 
+* raisedInvertedCosine(x): 
+* sineIn(x): 
+* sineInOut(x): 
+* sineOut(x): 
+* smoothStep(x): 
+* smootherStep(x): 
+* staircase(x, n): 
+* tripleLinear(x, a, b, c, d): 
+* variableStaircase(x, a, n): 
+* listAlgos(): 
+* fillArray(algo, len, args): 
+* fillFloat32Array(algo, len, args): 
+* fillFloat64Array(algo, len, args): 
 
-p5.SpeechRec
+### p5.ArrayEval
+*methods*
+* eval(evalstr, l1), eval1d(evalstr, l1): 
+* eval2d(evalstr, l1, l2): 
+* eval3d(evalstr, l1, l2, l3): 
+
+### p5.Filt
+*constuctor*
+* fs: sampling rate (default=60)
+*methods*
+* clear(): 
+* coeffs(a0, b0, b1, b2, a1, a2): 
+* precalc(): 
+* process(x): 
+* set(type, f0, Q, dB): 
+* setBW(bw): 
+* setFreq(f0): 
+* setFs(fs): 
+* setGain(dB): 
+* setQ(Q): 
+* setType(type): 
+* tick(x): 
+
+### p5.FastFourierTransform
+*constructor*
+* bufsize: FFT buffer size (default=512)
+* fs: sampling rate (default=60)
+*methods*
+* forward(buffer): 
+* inverse(real, imag): 
+* calculateSpectrum(): 
+* getBandFrequency(index): 
+*properties*
+* spectrum: *Array* of current spectrum (amplitude) data
+* phase: *Array* of current phase data 
+* real: *Array* containing real part of last FFT
+* imaginary: *Array* containing imaginary part of last FFT
+
+### Misc. Utilities
+*methods*
+* imap(v, a, b, c, d): constrainted integer mapping function
+* createArray(len)
+* normalizeArray(array)
+* resizeArray(array, newlen)
+* multiplyArray(a1, a2)
+* addArray(a1, a2)
+* sumArray(a1, a2): array utility functions
+* f2ib(x)
+* ib2f(x): int<->float coercion with bit parity
+* sinc(x): sinc (*sinus cardinalis*) function
+* besselI0(x): bessel function
+* fplot(array, css): formattable console plot of any array
+
