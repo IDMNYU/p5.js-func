@@ -128,13 +128,52 @@ fplot(op, "color: green; font-size:9px;"); // plot
 
 ### p5.Gen
 *methods*
-* harmonics(x, args):
-* triples(x, args):
-* chebyshev(x, args):
-* bpf(x, args):
-* window(x, type, args):
+* harmonics(x, args): periodic function of harmonic strengths determined by the Array *args*. *x* is 0 to 1. returns f(x).
+* triples(x, args): function of summed sines. The *args* are an Array of triples of frequency multiplier, amplitude, phase. *x* is 0 to 1. returns f(x).
+* chebyshev(x, args): function of chebyshev polynomials of the first kind. will waveshape a sinusoid into a pre-defined spectrum, determined by the Array *args*. *x* is 0 to 1. returns f(x).
+* bpf(x, args): breakpoint function of line segments defined by *args* in *time*, *amplitude* pairs. *x* is 0 to 1. returns f(x).
+* window(x, type, args): generates window functions, with optional arguments:
+  * "hamming"
+  * "hanning" / "vonhann"
+  * "bartlett" / "fejer" / "triangle"
+  * "bartlett-hann"
+  * "blackman"
+  * "generalizedblackman"
+  * "blackman-harris"
+  * "blackman-nuttal"
+  * "nuttal"
+  * "gaussian"
+  * "kaiser"
+  * "rectangle" / "boxcar" / "dirichlet"
+  * "cosine"
+  * "sinc" / "lanczos"
+  * "flattop"
+  * "tukey"
+  * "slidinggaussian"
+  * "elliptic"
+  * "hyperelliptic"
+  * "squircular"
+  * "poisson"
+  * "hann-poisson"
+  * "slidinghann-poisson"
 * random(x, type):
+  * "linear" / "even"
+  * "low"
+  * "high"
+  * "triangle"
+  * "gaussian"
+  * "cauchy"
 * waveform(x, type):
+  * "sine"
+  * "cosine"
+  * "sawtooth"
+  * "sawdown"
+  * "phasor"
+  * "square"
+  * "rectangle"
+  * "pulse"
+  * "triangle"
+  * "buzz"
 * listAlgos():
 * fillArray(algo, len, args, fourth):
 * fillFloat32Array(algo, len, args, fourth):
