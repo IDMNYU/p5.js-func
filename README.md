@@ -323,7 +323,7 @@ For all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 
 ### Misc. Functions
 
-* **imap(v, a, b, c, d)**: constrainted integer mapping function. *v* is the input. *a* and *b* are the minimum and maximum range of the expected input. *c* and *d* are the range of the output. syntatically equivalent to the **map()** function in p5.
+* **imap(v, a, b, c, d)**: constrainted integer mapping function; great for Array index lookups originating from a continuous input. *v* is the input. *a* and *b* are the minimum and maximum range of the expected input. *c* and *d* are the range of the output. Syntatically equivalent to the **map()** function in p5.
 * **createArray(len)**: return an n-dimensional Array of length *len*, where *len* can be a list of arguments.
 * **normalizeArray(array)**: returns a *normalized* copy of an array (where the absolute maximum value is 1.0).
 * **resizeArray(array, newlen)**: returns a copy of *array* resized to length *newlen*. Upsampling is done by linear interpolation.
