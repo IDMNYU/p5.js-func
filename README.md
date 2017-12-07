@@ -128,18 +128,18 @@ fplot(op, "color: green; font-size:9px;"); // plot
 
 ### p5.Gen
 *methods*
-* harmonics(x, args): periodic function of harmonic strengths determined by the Array *args*. *x* is 0 to 1. Returns f(x).
-* triples(x, args): function of summed sines. The *args* are an Array of triples of frequency multiplier, amplitude, phase. *x* is 0 to 1. Returns f(x).
-* chebyshev(x, args): function of chebyshev polynomials of the first kind. These polynomials will waveshape a sinusoid into a pre-defined spectrum, determined by the Array *args*. *x* is 0 to 1. Returns f(x).
-* bpf(x, args): breakpoint function of line segments defined by Array *args* in *time*, *amplitude* pairs. *x* is 0 to 1. returns f(x).
-* random(x, type): generates random numbers according to *type*. *x* is the random number seed. A missing seed value (or a seed of -1) will use the millis() function to generate a seed. Returns f(x). Supported random functions are:
+* **harmonics(x, args)**: periodic function of harmonic strengths determined by the Array *args*. *x* is 0 to 1. Returns f(x).
+* **triples(x, args)**: function of summed sines. The *args* are an Array of triples of frequency multiplier, amplitude, phase. *x* is 0 to 1. Returns f(x).
+* **chebyshev(x, args)**: function of chebyshev polynomials of the first kind. These polynomials will waveshape a sinusoid into a pre-defined spectrum, determined by the Array *args*. *x* is 0 to 1. Returns f(x).
+* **bpf(x, args)**: breakpoint function of line segments defined by Array *args* in *time*, *amplitude* pairs. *x* is 0 to 1. returns f(x).
+* **random(x, type)**: generates random numbers according to *type*. *x* is the random number seed. A missing seed value (or a seed of -1) will use the millis() function to generate a seed. Returns f(x). Supported random functions are:
   * "linear" / "even"
   * "low"
   * "high"
   * "triangle"
   * "gaussian"
   * "cauchy"
-* window(x, type, args): generates window functions by *type*. Some functions have optional *args*. *x* is 0 to 1. Returns f(x). Supported window functions are:
+* **window(x, type, args)**: generates window functions by *type*. Some functions have optional *args*. *x* is 0 to 1. Returns f(x). Supported window functions are:
   * "hamming"
   * "hanning" / "vonhann"
   * "bartlett" / "fejer" / "triangle"
@@ -164,7 +164,7 @@ fplot(op, "color: green; font-size:9px;"); // plot
   * "poisson" (*args* defines center; defaults to 0.5)
   * "hann-poisson" (*args* defines center; defaults to 0.5)
   * "slidinghann-poisson" (*args* defines [center, sigma]; defaults to [0.5, 0.5])
-* waveform(x, type): generates simple waveform functions according to *type*. *x* is 0 to 1. Returns f(x). Supported waveforms are:
+* **waveform(x, type)**: generates simple waveform functions according to *type*. *x* is 0 to 1. Returns f(x). Supported waveforms are:
   * "sine"
   * "cosine"
   * "sawtooth"
@@ -175,10 +175,10 @@ fplot(op, "color: green; font-size:9px;"); // plot
   * "pulse"
   * "triangle"
   * "buzz"
-* listAlgos(): lists available top-level algorithms.
-* fillArray(algo, len, args, seed): evaluates one of the above algorithms on an Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("harmonics", "window", etc.); *len* is the length of the Array to return; *args* are the arguments for the generator algorithm; the *seed* argument sets a base seed for the "random" generator.
-* fillFloat32Array(algo, len, args, seed): evaluates one of the above algorithms on a Float32Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("harmonics", "window", etc.); *len* is the length of the Float32Array to return; *args* are the arguments for the generator algorithm; the *seed* argument sets a base seed for the "random" generator.
-* fillFloat64Array(algo, len, args, seed): evaluates one of the above algorithms on a Float64Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("harmonics", "window", etc.); *len* is the length of the Float64Array to return; *args* are the arguments for the generator algorithm; the *seed* argument sets a base seed for the "random" generator.
+* **listAlgos()**: lists available top-level algorithms.
+* **fillArray(algo, len, args, seed)**: evaluates one of the above algorithms on an Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("harmonics", "window", etc.); *len* is the length of the Array to return; *args* are the arguments for the generator algorithm; the *seed* argument sets a base seed for the "random" generator.
+* **fillFloat32Array(algo, len, args, seed)**: evaluates one of the above algorithms on a Float32Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("harmonics", "window", etc.); *len* is the length of the Float32Array to return; *args* are the arguments for the generator algorithm; the *seed* argument sets a base seed for the "random" generator.
+* **fillFloat64Array(algo, len, args, seed)**: evaluates one of the above algorithms on a Float64Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("harmonics", "window", etc.); *len* is the length of the Float64Array to return; *args* are the arguments for the generator algorithm; the *seed* argument sets a base seed for the "random" generator.
 
 ### p5.Ease
 *methods*
