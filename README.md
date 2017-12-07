@@ -298,31 +298,31 @@ for all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 
 ### p5.FastFourierTransform
 *constructor*
-* bufsize: FFT buffer size (default=512)
-* fs: sampling rate (default=60)
+* *bufsize*: FFT buffer size (default=512)
+* *fs*: sampling rate (default=60)
 *methods*
-* forward(buffer): 
-* inverse(real, imag): 
-* calculateSpectrum(): 
-* getBandFrequency(index): 
+* **forward(buffer)**: compute a forward transform (FFT) on the time-domain signal in the *buffer*. Fills the *real*, *imaginary*, *spectrum*, and *phase* Arrays in the object.
+* **inverse(real, imag)**: compute an inverse transform (IFFT) on the frequency-domain data in the *real* and *imag* Arrays. If no arguments are supplied, it will use the *real* and *imag* data stored in the object from the last forward transform.
+* **calculateSpectrum()**: computes the amplitude (spectrum) and phase data from the real and imaginary.
+* **getBandFrequency(index)**: returns the center frequency of an FFT band based on its index.
 *properties*
-* spectrum: *Array* of current spectrum (amplitude) data
-* phase: *Array* of current phase data 
-* real: *Array* containing real part of last FFT
-* imaginary: *Array* containing imaginary part of last FFT
+* *spectrum*: *Array* of current spectrum (amplitude) data.
+* *phase*: *Array* of current phase data.
+* *real*: *Array* containing real part of last FFT.
+* *imaginary*: *Array* containing imaginary part of last FFT.
 
 ### Misc. Utilities
 *methods*
-* imap(v, a, b, c, d): constrainted integer mapping function
-* createArray(len)
-* normalizeArray(array)
-* resizeArray(array, newlen)
-* multiplyArray(a1, a2)
-* addArray(a1, a2)
-* sumArray(a1, a2): array utility functions
-* f2ib(x)
-* ib2f(x): int<->float coercion with bit parity
-* sinc(x): sinc (*sinus cardinalis*) function
-* besselI0(x): bessel function
-* fplot(array, css): formattable console plot of any array
+* **imap(v, a, b, c, d)**: constrainted integer mapping function. *v* is the input. *a* and *b* are the minimum and maximum range of the expected input. *c* and *d* are the range of the output. syntatically equivalent to the **map()** function in p5.
+* **createArray(len)**: return an n-dimensional Array of length *len*, where *len* can be a list of arguments.
+* **normalizeArray(array)**: returns a *normalized* copy of an array (where the absolute maximum value is 1.0).
+* **resizeArray(array, newlen)**: returns a copy of *array* resized to length *newlen*. Upsampling is done by linear interpolation.
+* **multiplyArray(a1, a2)**: multiplies two arrays into a new array.
+* **addArray(a1, a2)**: adds two arrays into a new array.
+* **sumArray(array)**: returns the sum of *array*.
+* **f2ib(x)**: float->int coercion with bit parity.
+* **ib2f(x)**: int->float coercion with bit parity.
+* **sinc(x)**: sinc (*sinus cardinalis*) function. Returns f(x).
+* **besselI0(x)**: bessel function. Returns f(x).
+* **fplot(array, css)**: formattable console plot of any *array*. *css* parameters are passed as a string to the Javascript console object.
 
