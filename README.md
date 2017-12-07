@@ -319,9 +319,8 @@ for all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 * *real*: *Array* containing real part of last FFT.
 * *imaginary*: *Array* containing imaginary part of last FFT.
 
-### Misc. Utilities
+### Misc. Functions
 
-*methods*
 * **imap(v, a, b, c, d)**: constrainted integer mapping function. *v* is the input. *a* and *b* are the minimum and maximum range of the expected input. *c* and *d* are the range of the output. syntatically equivalent to the **map()** function in p5.
 * **createArray(len)**: return an n-dimensional Array of length *len*, where *len* can be a list of arguments.
 * **normalizeArray(array)**: returns a *normalized* copy of an array (where the absolute maximum value is 1.0).
