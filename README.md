@@ -277,20 +277,24 @@ for all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 
 ### p5.Filt
 *constuctor*
-* fs: sampling rate (default=60)
+* *fs*: sampling rate (default=60)
 *methods*
-* clear(): 
-* coeffs(a0, b0, b1, b2, a1, a2): 
-* precalc(): 
-* process(x): 
-* set(type, f0, Q, dB): 
-* setBW(bw): 
-* setFreq(f0): 
-* setFs(fs): 
-* setGain(dB): 
-* setQ(Q): 
-* setType(type): 
-* tick(x): 
+* **tick(x)**: evaluate a single sample (*x*) through the filter. Method returns f(x).
+* **process(x)**: evaluate a vector (an Array) through the filter. Returns an Array of the same length.
+* **set(type, f0, Q, dB)**: sets the parameters of the filter:
+  * *type* can be "lowpass", "highpass", "bandpass", "resonant", "notch", "allpass", "peaknotch", "lowshelf", and "highshelf".
+  * *f0* is the center / cutoff frequency of the filter.
+  * *Q* is the "quality" of the filter (inverse of bandwidth). A higher Q is a narrower / more resonant filter.
+  * *dB* is the boost/cut (in decibels) of the filter, when *type* is "peaknotch", "lowshelf", and "highshelf".
+* **setType(type)**: set the *type* of the filter ("lowpass", etc.).
+* **setFreq(f0)**: set the center / cutoff frequency of the filter.
+* **setQ(Q)**: set the *Q* of the filter.
+* **setBW(bw)**: set the bandwidth of the filter (computes the *Q*).
+* **setGain(dB)**: sets the gain (in decibels) of the filter. 
+* **clear()**: clears/resets the sample memory in the filter.
+* **coeffs(a0, b0, b1, b2, a1, a2)**: sets the coefficients of the biquad "by hand".
+* **precalc()**: precompute the filter coefficients (a0, b0, etc.) based on the filter parameters (type, f0, Q, dB)
+* **setFs(fs)**: resets the sampling rate of the filter. The sampling rate defines how the *f0* of the filter will be interpreted when computing the coefficients.
 
 ### p5.FastFourierTransform
 *constructor*
