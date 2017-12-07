@@ -127,6 +127,7 @@ fplot(op, "color: green; font-size:9px;"); // plot
 ## Reference
 
 ### p5.Gen
+
 *methods*
 * **harmonics(x, args)**: periodic function of harmonic strengths determined by the Array *args*. *x* is 0 to 1. Returns f(x).
 * **triples(x, args)**: function of summed sines. The *args* are an Array of triples of frequency multiplier, amplitude, phase. *x* is 0 to 1. Returns f(x).
@@ -181,6 +182,7 @@ fplot(op, "color: green; font-size:9px;"); // plot
 * **fillFloat64Array(algo, len, args, seed)**: evaluates one of the above algorithms on a Float64Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("harmonics", "window", etc.); *len* is the length of the Float64Array to return; *args* are the arguments for the generator algorithm; the *seed* argument sets a base seed for the "random" generator.
 
 ### p5.Ease
+
 *methods*
 for all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have optional arguments: *n* is order for exponential / stepping functions; *a*, *b*, *c*, and *d* are coefficients:
 * **adjustableCenterDoubleExponentialSigmoid(x, a, b)**
@@ -270,12 +272,14 @@ for all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 * **fillFloat64Array(algo, len, args)**: evaluates an easing function on an Float64Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("doubleLinear", "sineOut", etc.); *len* is the length of the Float64Array to return; *args* are the arguments to the algorithm, if needed. 
 
 ### p5.ArrayEval
+
 *methods*
 * **eval(evalstr, l1)**, **eval1d(evalstr, l1)**: evaluate a *evalstr* into a one-dimensional Array. If *evalstr* is an Array, each element in the Array will fill with more than one value. *l1* is the length of the Array to return. The keywords *u*, *su*, *cu*, and *du* will be expanded to a normal map, a signed normal map, a cell position (0 to *l1*-1), and the length of the array (*l1*).
 * **eval2d(evalstr, l1, l2)**: evaluate a *evalstr* into a two-dimensional Array. If *evalstr* is an Array, each element in the Array will fill with more than one value. *l1* and *l2*) are the width and height of the Array to return. The keywords *u/v*, *su/sv*, *cu/sv*, and *du/dv* will be expanded to a normal map, a signed normal map, a cell position (0 to *l1/l2*-1), and the length of the array (*l1/l2*) on the two axes.
 * **eval3d(evalstr, l1, l2, l3)**: evaluate a *evalstr* into a three-dimensional Array. If *evalstr* is an Array, each element in the Array will fill with more than one value. *l1*, *l2*, and *l3*) are the width, height, and depth of the Array to return. The keywords *u/v/w*, *su/sv/sw*, *cu/sv/sw*, and *du/dv/sw* will be expanded to a normal map, a signed normal map, a cell position (0 to *l1/l2/l3*-1), and the length of the array (*l1/l2/l3*) on the two axes.
 
 ### p5.Filt
+
 *constuctor*
 * *fs*: sampling rate (default=60)
 
@@ -298,14 +302,17 @@ for all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 * **setFs(fs)**: resets the sampling rate of the filter. The sampling rate defines how the *f0* of the filter will be interpreted when computing the coefficients.
 
 ### p5.FastFourierTransform
+
 *constructor*
 * *bufsize*: FFT buffer size (default=512)
 * *fs*: sampling rate (default=60)
+
 *methods*
 * **forward(buffer)**: compute a forward transform (FFT) on the time-domain signal in the *buffer*. Fills the *real*, *imaginary*, *spectrum*, and *phase* Arrays in the object.
 * **inverse(real, imag)**: compute an inverse transform (IFFT) on the frequency-domain data in the *real* and *imag* Arrays. If no arguments are supplied, it will use the *real* and *imag* data stored in the object from the last forward transform.
 * **calculateSpectrum()**: computes the amplitude (spectrum) and phase data from the real and imaginary.
 * **getBandFrequency(index)**: returns the center frequency of an FFT band based on its index.
+
 *properties*
 * *spectrum*: *Array* of current spectrum (amplitude) data.
 * *phase*: *Array* of current phase data.
@@ -313,6 +320,7 @@ for all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 * *imaginary*: *Array* containing imaginary part of last FFT.
 
 ### Misc. Utilities
+
 *methods*
 * **imap(v, a, b, c, d)**: constrainted integer mapping function. *v* is the input. *a* and *b* are the minimum and maximum range of the expected input. *c* and *d* are the range of the output. syntatically equivalent to the **map()** function in p5.
 * **createArray(len)**: return an n-dimensional Array of length *len*, where *len* can be a list of arguments.
