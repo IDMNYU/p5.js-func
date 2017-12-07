@@ -182,91 +182,92 @@ fplot(op, "color: green; font-size:9px;"); // plot
 
 ### p5.Ease
 *methods*
-* adjustableCenterDoubleExponentialSigmoid(x, a, b): 
-* backIn(x): 
-* backInOut(x): 
-* backOut(x): 
-* bounceIn(x): 
-* bounceInOut(x): 
-* bounceOut(x): 
-* boxcar(x): 
-* brycesCubic(x, n): 
-* catmullRomInterpolate(x, a, b): 
-* circularArcThroughAPoint(x, a, b): 
-* circularFillet(x, a, b, c): 
-* circularIn(x): 
-* circularInOut(x): 
-* circularOut(x): 
-* cosineApproximation(x): 
-* cubicBezier(x, a, b, c, d): 
-* cubicBezierThrough2Points(x, a, b, c, d): 
-* cubicIn(x): 
-* cubicInOut(x): 
-* cubicOut(x): 
-* dampedSinusoid(x, a): 
-* dampedSinusoidReverse(x, a): 
-* doubleCircularOgee(x, a): 
-* doubleCircularSigmoid(x, a): 
-* doubleCubicOgee(x, a, b): 
-* doubleCubicOgeeSimplified(x, a, b): 
-* doubleEllipticOgee(x, a, b): 
-* doubleEllipticSigmoid(x, a, b): 
-* doubleExponentialOgee(x, a): 
-* doubleExponentialSigmoid(x, a): 
-* doubleLinear(x, a, b): 
-* doubleOddPolynomialOgee(x, a, b, n): 
-* doublePolynomialSigmoid(x, n): 
-* doubleQuadraticBezier(x, a, b, c, d): 
-* doubleQuadraticSigmoid(x): 
-* doubleSquircularOgee(x, a, n): 
-* doubleSquircularSigmoid(x, a, n): 
-* elasticIn(x): 
-* elasticInOut(x): 
-* elasticOut(x): 
-* exponentialEmphasis(x, a): 
-* exponentialIn(x): 
-* exponentialInOut(x): 
-* exponentialOut(x): 
-* exponentialSmoothedStaircase(x, a, n): 
-* fastSquareRoot(x): 
-* generalSigmoidLogitCombo(x, a, b): 
-* generalizedLinearMap(x, a, b, c, d): 
-* gompertz(x, a): 
-* hermite(x, a, b, c, d): 
-* hermite2(x, a, b, c, d): 
-* iterativeSquareRoot(x): 
-* linear(x): 
-* maclaurinCosine(x): 
-* normalizedErf(x): 
-* normalizedInverseErf(x): 
-* normalizedLogisticSigmoid(x, a): 
-* normalizedLogit(x, a): 
-* parabolaThroughAPoint(x, a, b): 
-* quadraticBezier(x, a, b): 
-* quadraticBezierStaircase(x, a, n): 
-* quadraticIn(x): 
-* quadraticInOut(x): 
-* quadraticOut(x): 
-* quartic(x, a, b): 
-* quarticIn(x): 
-* quarticInOut(x): 
-* quarticOut(x): 
-* quinticIn(x): 
-* quinticInOut(x): 
-* quinticOut(x): 
-* raisedInvertedCosine(x): 
-* sineIn(x): 
-* sineInOut(x): 
-* sineOut(x): 
-* smoothStep(x): 
-* smootherStep(x): 
-* staircase(x, n): 
-* tripleLinear(x, a, b, c, d): 
-* variableStaircase(x, a, n): 
-* listAlgos(): 
-* fillArray(algo, len, args): 
-* fillFloat32Array(algo, len, args): 
-* fillFloat64Array(algo, len, args): 
+for all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have optional arguments: *n* is order for exponential / stepping functions; *a*, *b*, *c*, and *d* are coefficients:
+* **adjustableCenterDoubleExponentialSigmoid(x, a, b) **
+* **backIn(x) **
+* **backInOut(x) **
+* **backOut(x) **
+* **bounceIn(x) **
+* **bounceInOut(x)**
+* **bounceOut(x) **
+* **boxcar(x)**
+* **brycesCubic(x, n)**
+* **catmullRomInterpolate(x, a, b)**
+* **circularArcThroughAPoint(x, a, b)**
+* **circularFillet(x, a, b, c)**
+* **circularIn(x)**
+* **circularInOut(x)**
+* **circularOut(x)**
+* **cosineApproximation(x)**
+* **cubicBezier(x, a, b, c, d)**
+* **cubicBezierThrough2Points(x, a, b, c, d)**
+* **cubicIn(x)**
+* **cubicInOut(x)**
+* **cubicOut(x)**
+* **dampedSinusoid(x, a)**
+* **dampedSinusoidReverse(x, a)**
+* **doubleCircularOgee(x, a)**
+* **doubleCircularSigmoid(x, a)**
+* **doubleCubicOgee(x, a, b)**
+* **doubleCubicOgeeSimplified(x, a, b)**
+* **doubleEllipticOgee(x, a, b)**
+* **doubleEllipticSigmoid(x, a, b)**
+* **doubleExponentialOgee(x, a)**
+* **doubleExponentialSigmoid(x, a)**
+* **doubleLinear(x, a, b)**
+* **doubleOddPolynomialOgee(x, a, b, n)**
+* **doublePolynomialSigmoid(x, n)**
+* **doubleQuadraticBezier(x, a, b, c, d)**
+* **doubleQuadraticSigmoid(x)**
+* **doubleSquircularOgee(x, a, n)**
+* **doubleSquircularSigmoid(x, a, n)**
+* **elasticIn(x)**
+* **elasticInOut(x)**
+* **elasticOut(x)**
+* **exponentialEmphasis(x, a)**
+* **exponentialIn(x)**
+* **exponentialInOut(x)**
+* **exponentialOut(x)**
+* **exponentialSmoothedStaircase(x, a, n)**
+* **fastSquareRoot(x)**
+* **generalSigmoidLogitCombo(x, a, b)**
+* **generalizedLinearMap(x, a, b, c, d)**
+* **gompertz(x, a)**
+* **hermite(x, a, b, c, d)**
+* **hermite2(x, a, b, c, d)**
+* **iterativeSquareRoot(x)**
+* **linear(x)**
+* **maclaurinCosine(x)**
+* **normalizedErf(x)**
+* **normalizedInverseErf(x)**
+* **normalizedLogisticSigmoid(x, a)**
+* **normalizedLogit(x, a)**
+* **parabolaThroughAPoint(x, a, b)**
+* **quadraticBezier(x, a, b)**
+* **quadraticBezierStaircase(x, a, n)**
+* **quadraticIn(x)**
+* **quadraticInOut(x)**
+* **quadraticOut(x)**
+* **quartic(x, a, b)**
+* **quarticIn(x)**
+* **quarticInOut(x)**
+* **quarticOut(x)**
+* **quinticIn(x)**
+* **quinticInOut(x)**
+* **quinticOut(x)**
+* **raisedInvertedCosine(x)**
+* **sineIn(x)**
+* **sineInOut(x)**
+* **sineOut(x)**
+* **smoothStep(x)**
+* **smootherStep(x)**
+* **staircase(x, n)**
+* **tripleLinear(x, a, b, c, d)**
+* **variableStaircase(x, a, n)**
+* **listAlgos()**: lists available easing functions.
+* **fillArray(algo, len, args)**: evaluates an easing function on an Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("doubleLinear", "sineOut", etc.); *len* is the length of the Array to return; *args* are the arguments to the algorithm, if needed. 
+* **fillFloat32Array(algo, len, args)**: evaluates an easing function on a Float32Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("doubleLinear", "sineOut", etc.); *len* is the length of the Float32Array to return; *args* are the arguments to the algorithm, if needed. 
+* **fillFloat64Array(algo, len, args)**: evaluates an easing function on an Float64Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("doubleLinear", "sineOut", etc.); *len* is the length of the Float64Array to return; *args* are the arguments to the algorithm, if needed. 
 
 ### p5.ArrayEval
 *methods*
