@@ -177,8 +177,8 @@ fplot(op, "color: green; font-size:9px;"); // plot
   * "buzz"
 * listAlgos(): lists available top-level algorithms.
 * fillArray(algo, len, args, seed): evaluates one of the above algorithms on an Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("harmonics", "window", etc.); *len* is the length of the Array to return; *args* are the arguments for the generator algorithm; the *seed* argument sets a base seed for the "random" generator.
-* fillFloat32Array(algo, len, args, seed): evaluates one of the above algorithms on an Float32Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("harmonics", "window", etc.); *len* is the length of the Float32Array to return; *args* are the arguments for the generator algorithm; the *seed* argument sets a base seed for the "random" generator.
-* fillFloat64Array(algo, len, args, seed): evaluates one of the above algorithms on an Float64Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("harmonics", "window", etc.); *len* is the length of the Float64Array to return; *args* are the arguments for the generator algorithm; the *seed* argument sets a base seed for the "random" generator.
+* fillFloat32Array(algo, len, args, seed): evaluates one of the above algorithms on a Float32Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("harmonics", "window", etc.); *len* is the length of the Float32Array to return; *args* are the arguments for the generator algorithm; the *seed* argument sets a base seed for the "random" generator.
+* fillFloat64Array(algo, len, args, seed): evaluates one of the above algorithms on a Float64Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("harmonics", "window", etc.); *len* is the length of the Float64Array to return; *args* are the arguments for the generator algorithm; the *seed* argument sets a base seed for the "random" generator.
 
 ### p5.Ease
 *methods*
