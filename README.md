@@ -133,8 +133,8 @@ fplot(op, "color: green; font-size:9px;"); // plot
 * chebyshev(x, args): function of chebyshev polynomials of the first kind. will waveshape a sinusoid into a pre-defined spectrum, determined by the Array *args*. *x* is 0 to 1. returns f(x).
 * bpf(x, args): breakpoint function of line segments defined by *args* in *time*, *amplitude* pairs. *x* is 0 to 1. returns f(x).
 * window(x, type, args): generates window functions, with optional arguments:
-* * foo
-* * bar
+  * foo
+  * bar
 * random(x, type):
 * waveform(x, type):
 * listAlgos():
