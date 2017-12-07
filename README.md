@@ -183,13 +183,13 @@ fplot(op, "color: green; font-size:9px;"); // plot
 ### p5.Ease
 *methods*
 for all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have optional arguments: *n* is order for exponential / stepping functions; *a*, *b*, *c*, and *d* are coefficients:
-* **adjustableCenterDoubleExponentialSigmoid(x, a, b) **
-* **backIn(x) **
-* **backInOut(x) **
-* **backOut(x) **
-* **bounceIn(x) **
+* **adjustableCenterDoubleExponentialSigmoid(x, a, b)**
+* **backIn(x)**
+* **backInOut(x)**
+* **backOut(x)**
+* **bounceIn(x)**
 * **bounceInOut(x)**
-* **bounceOut(x) **
+* **bounceOut(x)**
 * **boxcar(x)**
 * **brycesCubic(x, n)**
 * **catmullRomInterpolate(x, a, b)**
