@@ -278,6 +278,7 @@ for all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 ### p5.Filt
 *constuctor*
 * *fs*: sampling rate (default=60)
+
 *methods*
 * **tick(x)**: evaluate a single sample (*x*) through the filter. Method returns f(x).
 * **process(x)**: evaluate a vector (an Array) through the filter. Returns an Array of the same length.
