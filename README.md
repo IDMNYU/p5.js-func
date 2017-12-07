@@ -7,7 +7,7 @@ NYU
 
 Shiffman, it's pronounced *funk*.
 
-**p5.func** is a p5 extension that provides new objects and utilities for function generation in the time, spatial, and frequency domains. This module might be useful for everything from plotting complex animation paths to signal processing.
+**p5.func** is a p5 extension that provides new objects and utilities for function generation in the time, spatial, and frequency domains. This module might be useful for everything from plotting animation paths to signal processing.
 
 **p5.func** contains five new objects:
 
