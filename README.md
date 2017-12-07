@@ -19,7 +19,7 @@ The library also contains a number of utility functions for p5:
 
 *  imap() : constrainted integer mapping function
 *  normalizeArray()/resizeArray()/multiplyArray()/addArray()/sumArray() : array functions
-*  f2ib() / ib2f() : int<->float casting with bit parity
+*  f2ib() / ib2f() : int<->float coercion with bit parity
 *  sinc() : sinc (sinus cardinalis) function
 *  besselI0() : bessel function
 *  fplot() : formattable console plot of any array
