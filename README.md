@@ -124,4 +124,30 @@ var op = fft.spectrum; // output array with 256 points of magnitude
 console.log(op); // print
 fplot(op, "color: green; font-size:9px;"); // plot
 ```
+## Reference
 
+# p5.Gen
+
+constructor
+* default_voice: optional argument to set the default synthesizer voice by number (see listVoices()) or by name.
+methods
+* cancel(): silently cancels the current utterance and clears any queued utterances.
+* listVoices(): debugging statement. Lists available synthesis voices to the JavaScript console.
+* pause(): pause the current utterance. The onPause() callback will fire.
+* resume(): resumes the current utterance. The onResume() callback will fire.
+* setLang(language): sets the language interpreter for the synthesizer voice. Argument is BCP-47; Default is 'en-US'.
+* setPitch(pitch): sets playback pitch of synthesized speech from 0.01 (very low) to 2.0 (very high). Default is 1.0; not supported by all browser / OS combinations.
+* setRate(rate): sets rate of speech production from 0.1 (very slow) to 2.0 (very fast). Default is 1.0; not supported by all browser / OS combinations.
+* setVoice(voice): sets synthesizer voice by number (see listVoices()) or by name; equivalent to the default_voice parameter passed with the constructor.
+* setVolume(volume): sets synthesizer volume in the range of 0.0 (silent) to 1.0 (default=max volume).
+* speak(utterance): instructs the synthesizer to speak the string encoded in utterance. Depending on the interrupt property, additional calls to speak() will queue after or interrupt speech actively being synthesized. When synthesis begins, the onStart() callback will fire; when synthesis ends, the onEnd() callback will fire.
+* stop(): stops the current utterance. The onEnd() callback will fire.
+properties
+* interrupt: boolean to set whether the speak() method will interrupt (true) or queue after (false = default) existing speech currently being synthesized.
+* onEnd: function sets callback to fire when an utterance is finished.
+* onLoad: function sets callback to fire when synthesis voices are loaded.
+* onPause: function sets callback to fire when an utterance is paused.
+* onResume: function sets callback to fire when an utterance is resumed.
+* onStart: function sets callback to fire when synthesis is begun.
+
+p5.SpeechRec
