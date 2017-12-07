@@ -13,7 +13,7 @@ This is a p5 extension that provides new objects and utilities for function gene
 * p5.Ease() : easing / interpolation functions
 * p5.ArrayEval() : equation evaluator to generate pre-computed arrays
 * p5.Filt() : biquadratic filter object
-* p5.FastFourierTransform() : data-neutral FFT implementation
+* p5.FastFourierTransform() : signal neutral FFT implementation
 
 The library also contains a number of utility functions for p5:
 
