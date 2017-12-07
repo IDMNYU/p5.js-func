@@ -7,22 +7,24 @@ NYU
 
 Shiffman, it's pronounced *funk*.
 
-This is a p5 extension that provides new objects and utilities for function generation in the time, spatial, and frequency domains.  It consists of five new object classes:
+**p5.func** is a p5 extension that provides new objects and utilities for function generation in the time, spatial, and frequency domains. This module might be useful for everything from plotting complex animation paths to signal processing.
 
-* p5.Gen() : function generators (waveforms, curves, window functions, noise, etc.)
-* p5.Ease() : easing / interpolation functions
-* p5.ArrayEval() : equation evaluator to generate pre-computed arrays
-* p5.Filt() : biquadratic filter object
-* p5.FastFourierTransform() : signal neutral FFT implementation
+**p5.func** contains five new objects:
+
+* **p5.Gen()** : function generators (waveforms, curves, window functions, noise, etc.)
+* **p5.Ease()** : easing / interpolation functions
+* **p5.ArrayEval()** : equation evaluator to generate pre-computed arrays
+* **p5.Filt()** : biquadratic filter object
+* **p5.FastFourierTransform()** : signal neutral FFT implementation
 
 The library also contains a number of utility functions for p5:
 
-*  imap() : constrainted integer mapping function
-*  normalizeArray()/resizeArray()/multiplyArray()/addArray()/sumArray() : array functions
-*  f2ib() / ib2f() : int<->float coercion with bit parity
-*  sinc() : sinc (sinus cardinalis) function
-*  besselI0() : bessel function
-*  fplot() : formattable console plot of any array
+*  **imap()** : constrainted integer mapping function
+*  **normalizeArray()** / **resizeArray()** / **multiplyArray()** / **addArray()** / **sumArray()** : array utility functions
+*  **f2ib()** / **ib2f()** : int<->float coercion with bit parity
+*  **sinc()** : sinc (*sinus cardinalis*) function
+*  **besselI0()** : bessel function
+*  **fplot()** : formattable console plot of any array
  
 Quite a bit of this code is adapted from other sources, notably:
 *  RTcmix Scorefile Commands: http://rtcmix.org/reference/scorefile/
