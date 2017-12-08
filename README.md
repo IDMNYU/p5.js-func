@@ -202,7 +202,7 @@ For all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 
 ### p5.Filt
 
-*constuctor*
+*constructor*
 * *fs*: sampling rate (default=60)
 
 *methods*
