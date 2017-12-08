@@ -23,7 +23,7 @@ The library also contains a number of utility functions for p5:
 *  **createArray()** / **normalizeArray()** / **resizeArray()** / **multiplyArray()** / **addArray()** / **sumArray()** : array utility functions
 *  **f2ib()** / **ib2f()** : int<->float coercion with bit parity
 *  **sinc()** : sinc (*sinus cardinalis*) function
-*  **besselI0()** : bessel function
+*  **besselI0()** : Bessel function
 *  **fplot()** : formattable console plot of any array
  
 Quite a bit of this code is adapted from other sources, notably:
@@ -253,6 +253,6 @@ For all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 * **f2ib(x)**: float->int coercion with bit parity.
 * **ib2f(x)**: int->float coercion with bit parity.
 * **sinc(x)**: sinc (*sinus cardinalis*) function. Returns f(x).
-* **besselI0(x)**: bessel function. Returns f(x).
+* **besselI0(x)**: Bessel function. Returns f(x).
 * **fplot(array, css)**: formattable console plot of any *array*. *css* parameters are passed as a string to the Javascript console object.
 
