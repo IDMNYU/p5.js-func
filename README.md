@@ -1,4 +1,4 @@
-# p5.js-func
+# [p5.js-func](https://idmnyu.github.io/p5.js-func/)
 Function Generators for [p5.js](http://p5js.org)
 
 R. Luke DuBois (dubois@nyu.edu)   
