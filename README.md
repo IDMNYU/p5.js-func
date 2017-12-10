@@ -125,6 +125,10 @@ var op = fft.spectrum; // output array with 256 points of magnitude
 console.log(op); // print
 fplot(op, "color: green; font-size:9px;"); // plot
 ```
+## Examples
+
+* [p5.ArrayEval() 2D Grid](https://idmnyu.github.io/p5.js-func/examples/arrayeval1_grid)
+
 ## Reference
 
 ### p5.Gen
