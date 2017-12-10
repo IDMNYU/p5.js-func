@@ -1,4 +1,5 @@
 theme: jekyll-theme-minimal
 title: [p5.js-func]
-description: [Function generators for p5.js]
+description: [Function generators for p5.js
+testing one two three]
 show_downloads: "true"
