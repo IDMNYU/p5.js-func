@@ -30,7 +30,7 @@ The library also contains a number of utility functions for p5:
 Quite a bit of this code is adapted from other sources, notably:
 *  [RTcmix Scorefile Commands](http://rtcmix.org/reference/scorefile/)
 *  [Robert Penner's Easing Functions](http://robertpenner.com/easing/)
-*  [Golan Levin's Pattern Master])https://github.com/golanlevin/Pattern_Master)
+*  [Golan Levin's Pattern Master](https://github.com/golanlevin/Pattern_Master)
 *  [Robert Bristow-Johnson's Audio EQ Cookbook](http://www.musicdsp.org/files/Audio-EQ-Cookbook.txt)
 *  [Corban Brook's dsp.js](https://github.com/corbanbrook/dsp.js/)
 
