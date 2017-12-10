@@ -1,5 +1,5 @@
 # p5.js-func
-Function Generators for p5.js (http://p5js.org)
+Function Generators for p5.js ([http://p5js.org](http://p5js.org))
 
 R. Luke DuBois (dubois@nyu.edu)   
 [Integrated Digital Media](http://idm.engineering.nyu.edu) / [Brooklyn Experimental Media Center](http://bxmc.poly.edu)    
@@ -33,6 +33,11 @@ Quite a bit of this code is adapted from other sources, notably:
 *  Golan Levin's Pattern Master: https://github.com/golanlevin/Pattern_Master
 *  Robert Bristow-Johnson's Audio EQ Cookbook: http://www.musicdsp.org/files/Audio-EQ-Cookbook.txt
 *  Corban Brook's dsp.js: https://github.com/corbanbrook/dsp.js/
+
+## Download
+* [GitHub Repository](https://github.com/IDMNYU/p5.js-func)
+* [Library Only](https://raw.githubusercontent.com/IDMNYU/p5.js-func/master/lib/p5.func.js)
+* [Minimized Library](https://raw.githubusercontent.com/IDMNYU/p5.js-func/master/lib/p5.func.min.js)
 
 ## Examples
 
