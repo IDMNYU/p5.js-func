@@ -28,11 +28,11 @@ The library also contains a number of utility functions for p5:
 *  **fplot()** : formattable console plot of any array
  
 Quite a bit of this code is adapted from other sources, notably:
-*  RTcmix Scorefile Commands: http://rtcmix.org/reference/scorefile/
-*  Robert Penner's Easing Functions: http://robertpenner.com/easing/
-*  Golan Levin's Pattern Master: https://github.com/golanlevin/Pattern_Master
-*  Robert Bristow-Johnson's Audio EQ Cookbook: http://www.musicdsp.org/files/Audio-EQ-Cookbook.txt
-*  Corban Brook's dsp.js: https://github.com/corbanbrook/dsp.js/
+*  [RTcmix Scorefile Commands](http://rtcmix.org/reference/scorefile/)
+*  [Robert Penner's Easing Functions](http://robertpenner.com/easing/)
+*  [Golan Levin's Pattern Master])https://github.com/golanlevin/Pattern_Master)
+*  [Robert Bristow-Johnson's Audio EQ Cookbook](http://www.musicdsp.org/files/Audio-EQ-Cookbook.txt)
+*  [Corban Brook's dsp.js](https://github.com/corbanbrook/dsp.js/)
 
 ## Download
 * [Library only](https://raw.githubusercontent.com/IDMNYU/p5.js-func/master/lib/p5.func.js)
