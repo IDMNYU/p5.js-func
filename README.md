@@ -127,7 +127,7 @@ fplot(op, "color: green; font-size:9px;"); // plot
 ```
 ## Examples
 
-* [p5.ArrayEval() 2D Grid](https://idmnyu.github.io/p5.js-func/examples/arrayeval1_grid) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/arrayeval1_grid/sketch.js)
+* [p5.ArrayEval() 2D Grid](https://idmnyu.github.io/p5.js-func/examples/arrayeval1_grid) ([source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/arrayeval1_grid/sketch.js))
 * [p5.ArrayEval() Curve Generator](https://idmnyu.github.io/p5.js-func/examples/arrayeval2_curve) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/arrayeval2_curve/sketch.js)
 * [p5.Ease() Simple Panning](https://idmnyu.github.io/p5.js-func/examples/easing1_pan) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/easing1_pan/sketch.js)
 * [p5.Ease() Wah-wah](https://idmnyu.github.io/p5.js-func/examples/easing2_wah) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/easing2_wah/sketch.js)
