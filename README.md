@@ -1,4 +1,4 @@
-![IDM Logo](https://raw.githubusercontent.com/IDMNYU/assets/master/IheartDM_long.png "Integrated Digital Media")
+<img src="https://raw.githubusercontent.com/IDMNYU/assets/master/IheartDM_long.png" alt="Integrated Digital Media" width="400"/>
 
 # p5.js-func
 Function Generators for [p5.js](http://p5js.org)
