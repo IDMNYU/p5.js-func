@@ -3,16 +3,25 @@
 
 var gen = new p5.Gen();
 
+var tb; // textbox
+
 function setup()
 {
-  createCanvas(1280, 720);
+  createCanvas(800, 600);
   background(255);
   fill(0);
 
-  textSize(18);
+  tb = createDiv('');
+  tb.style("font-family", "Courier");
+  tb.style("font-size", "12px");
+  tb.position(width*0.1, height*0.1);
+  tb.size(500, 500);
 
-  text("p5.Gen()", 40, 40);
-  text("Check console for output", 40, 80);
+  var hs = '';
+  hs+= "p5.Gen()<br>";
+  hs+= "Check console for output.";
+
+  tb.html(hs);
 
   noLoop();
 

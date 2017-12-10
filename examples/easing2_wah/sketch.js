@@ -9,6 +9,8 @@ var speed = 0.01;
 var doclear;
 var osc1, osc2, filt;
 
+var tb; // textbox
+
 function setup()
 {
   createCanvas(800, 600);
@@ -36,7 +38,11 @@ function setup()
   osc2.connect(filt);
   osc2.start();
 
-  textSize(18);
+  tb = createDiv('');
+  tb.style("font-family", "Courier");
+  tb.style("font-size", "12px");
+  tb.position(width*0.1, height*0.1);
+  tb.size(500, 500);
 }
 
 function draw()
@@ -48,8 +54,8 @@ function draw()
     noStroke();
     fill(215);
     rect(width*0.25, height*0.2, width*0.5, height*0.5);
-    fill(0);
-    text(curstyle, width*0.1, height*0.1);
+    var hs = 'p5.Ease()<br><br>' + curstyle;
+    tb.html(hs);
     noFill();
     stroke(255, 0, 0);
     line(width*0.25, height*0.7, width*0.75, height*0.2);

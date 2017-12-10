@@ -6,8 +6,9 @@ var styles = ease.listAlgos();
 var curstyle;
 var speed = 0.02;
 var t = 0.;
-var doclear;
 var tab;
+
+var tb; // textbox
 
 function setup()
 {
@@ -15,9 +16,11 @@ function setup()
 
   curstyle = pickrand(styles);
 
-  doclear = true;
-
-  textSize(18);
+  tb = createDiv('');
+  tb.style("font-family", "Courier");
+  tb.style("font-size", "12px");
+  tb.position(width*0.1, height*0.1);
+  tb.size(500, 500);
 
 }
 
@@ -31,10 +34,12 @@ function draw()
   var npoints = floor(constrain(mouseX/4, 2, width/4))
   tab = ease.fillArray(curstyle, npoints);
 
-  noStroke();
-  fill(0);
-  text(curstyle + ": " + npoints + " points", width*0.1, height*0.1);
-  text("mouseX = # points; <space> = new algorithm.", width*0.1, height*0.8);
+  var hs = '';
+  hs+= 'p5.Ease() array filling.<br>';
+  hs+= curstyle + ': ' + npoints + ' points.<br>';
+  hs+= 'mouseX = # points; &lt;space&gt; = new algorithm.';
+
+  tb.html(hs);
 
   stroke(0, 0, 255);
   fill(0, 32);
@@ -54,5 +59,4 @@ function keyTyped()
 {
   curstyle = pickrand(styles);
   tab = ease.fillArray(curstyle, 512);
-  doclear = true;
 }

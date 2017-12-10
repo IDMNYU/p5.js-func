@@ -7,6 +7,7 @@ var h = 30;
 var wstep, hstep;
 var t; // array
 
+var tb; // textbox
 
 var s = [];
 
@@ -27,7 +28,12 @@ function setup()
   wstep = 1280/w*0.75;
   hstep = 720/h;
 
-  textSize(18);
+  tb = createDiv('');
+  tb.style("font-family", "Courier");
+  tb.style("font-size", "12px");
+  tb.position(20, 20);
+  tb.size(500, 500);
+
   noLoop();
 }
 
@@ -37,10 +43,13 @@ function draw()
   fill(0);
   noStroke();
 
-  text('var e = new p5.ArrayEval();', 20, 20);
-  text('var s = \'' + s[current] + '\';', 20, 50);
-  text('var t = e.eval2d(s, 40, 30);', 20, 80)
-  text('press any key to switch equations.', 20, 500)
+  var hs = '';
+  hs+= 'var e = new p5.ArrayEval();<br>';
+  hs+= 'var s = \'' + s[current] + '\';<br>';
+  hs+= 'var t = e.eval2d(s, 40, 30);<br>';
+  hs+= 'press any key to switch equations.<br>';
+
+  tb.html(hs);
 
   stroke(0, 0, 255);
   scale(0.5);

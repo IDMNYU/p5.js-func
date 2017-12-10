@@ -5,6 +5,8 @@ var f;
 
 var osc1, osc2;
 
+var tb; // textbox
+
 function setup()
 {
   createCanvas(800, 600);
@@ -21,7 +23,11 @@ function setup()
   osc2.amp(0.3);
   osc2.start();
 
-  textSize(18);
+  tb = createDiv('');
+  tb.style("font-family", "Courier");
+  tb.style("font-size", "12px");
+  tb.position(width*0.1, height*0.1);
+  tb.size(500, 500);
 
   f = new p5.Filt()
   f.set('lowpass', 3, 0.7);
@@ -38,14 +44,15 @@ function draw()
   var p = random();
   var q = f.tick(p);
 
-  var ss = 'var f = new p5.Filt();';
-  text(ss, width*0.1, height*0.1);
-  var ss = 'f.set(\'lowpass\', 3, 0.7);';
-  text(ss, width*0.1, height*0.15);
-  var ss = 'var p = random();';
-  text(ss, width*0.1, height*0.2);
-  var ss = 'var q = f.tick(p);';
-  text(ss, width*0.1, height*0.25);
+  var hs = '';
+  hs+= 'var f = new p5.Filt();<br>';
+  hs+= 'f.set(\'lowpass\', 3, 0.7);<br>';
+  hs+= 'var p = random();<br>';
+  hs+= 'var q = f.tick(p);<br>';
+  hs+= '<br><br><br><br>p: ' + p.toFixed(2) + '<br>';
+  hs+= '<br><br><br>q: ' + q.toFixed(2);
+
+  tb.html(hs);
 
   noFill();
   stroke(255, 0, 0);
@@ -54,9 +61,7 @@ function draw()
 
   fill(0);
   noStroke();
-  text("p: " + p.toFixed(2), width*0.1, height*0.3);
   ellipse(p*width*0.6+width*0.2, height*0.3, 15, 15);
-  text("q: " + q.toFixed(2), width*0.1, height*0.4);
   ellipse(q*width*0.6+width*0.2, height*0.4, 15, 15);
 
   pan1 = map(p, 0., 1., -0.9, 0.9);

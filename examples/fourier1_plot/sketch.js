@@ -14,6 +14,7 @@ var win = new Array(FFTSIZE); // window function
 
 var fft;
 
+var tb; // textbox
 
 function setup()
 {
@@ -29,11 +30,18 @@ function setup()
   fft = new p5.FastFourierTransform(FFTSIZE, FS);
 
   gen = new p5.Gen();
+
   //sig = gen.fillArray('random', FFTSIZE);
   //sig = gen.fillArray('harmonics', FFTSIZE, [0, 0, 0, 0, 1., 0, 0, 0, 1]);
   sig = gen.fillArray('waveform', FFTSIZE, 'square');
 
   win = gen.fillArray('window', FFTSIZE, 'hanning');
+
+  tb = createDiv('');
+  tb.style("font-family", "Courier");
+  tb.style("font-size", "12px");
+  tb.position(width*0.1, height*0.1);
+  tb.size(500, 500);
 
   noLoop();
 }
@@ -43,11 +51,11 @@ function draw()
   fft.forward(multiplyArray(sig, win));
 
   background(255);
-  fill(0);
-  textSize(18);
-  text("p5.Fourier()", 40, 40);
-  text("signal:", width*0.1, height*0.15);
-  text("peak: " + fft.getBandFrequency(fft.peakBand).toFixed(4) + "Hz at " + fft.peak.toFixed(4), width*0.6, height*0.15);
+
+  var hs = '';
+  hs+= 'p5.Fourier()<br><br>';
+  hs+= 'signal peak: ' + fft.getBandFrequency(fft.peakBand).toFixed(4) + 'Hz at ' + fft.peak.toFixed(4);
+  tb.html(hs);
 
   fill(240);
   rect(width*0.1, height*0.2, width*0.8, height*0.7);

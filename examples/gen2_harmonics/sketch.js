@@ -20,6 +20,7 @@ var t = new Tone.Frequency();
 
 var within = false;
 
+var tb; // textbox
 
 function setup()
 {
@@ -27,7 +28,12 @@ function setup()
   doclear = 1;
 
   initBufferSource();
-  textSize(18);
+
+  tb = createDiv('');
+  tb.style("font-family", "Courier");
+  tb.style("font-size", "12px");
+  tb.position(20, 20);
+  tb.size(500, 500);
 
 }
 
@@ -41,9 +47,14 @@ function draw()
   fill(0);
 
   var q = gen.harmonics(p, harmonics);
-  text("p5.Gen()", width*0.1, height*0.1);
-  text("wavetable:", width*0.1, height*0.45);
-  text("draw harmonics:", width*0.05, height*0.8);
+
+  var hs = '';
+  hs+= 'p5.Gen()<br>';
+  hs+= 'draw harmonics in sliders below.<br>';
+
+  tb.html(hs);
+
+
   var x1 = map(p, 0., 1., width*0.25, width*0.7);
   var y1 = map(q, -1., 1., height*0.7, height*0.15);
   ellipse(x1, y1, 10, 10);

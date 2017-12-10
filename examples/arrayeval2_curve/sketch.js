@@ -7,6 +7,8 @@ var wstep, hstep;
 var t; // array
 var z = 75; // zoom factor in pixels
 
+var tb; // textbox
+
 var s = [];
 
 // some equations from paul bourke
@@ -40,6 +42,13 @@ function setup()
 {
   createCanvas(800, 600);
   textSize(12);
+
+  tb = createDiv('');
+  tb.style("font-family", "Courier");
+  tb.style("font-size", "12px");
+  tb.position(20, 20);
+  tb.size(500, 500);
+
   noLoop();
 }
 
@@ -64,10 +73,14 @@ function draw()
     resetMatrix();
     fill(0);
     noStroke();
-    text('var e = new p5.ArrayEval();', 20, 20);
-    text('var s = \'' + s[current] + '\';', 20, 50);
-    text('var t = e.eval(s, ' + l + ');', 20, 80)
-    text('press any key to switch equations.', 20, 500)
+
+    var hs = '';
+    hs+= 'var e = new p5.ArrayEval();<br>';
+    hs+= 'var s = \'' + s[current] + '\';<br>';
+    hs+= 'var t = e.eval(s, ' + l + ');<br>';
+    hs+= 'press any key to switch equations.<br>';
+
+    tb.html(hs);
 
     current = (current+1)%s.length;
 }

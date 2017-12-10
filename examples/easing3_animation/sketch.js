@@ -12,7 +12,7 @@ var x, y, tx, ty, x1, y1, px, py;
 
 var osc, rev;
 
-
+var tb; // textbox
 
 function setup()
 {
@@ -38,7 +38,12 @@ function setup()
   rev = new p5.Reverb();
   rev.process(osc, 3, 10);
 
-  textSize(18);
+  tb = createDiv('');
+  tb.style("font-family", "Courier");
+  tb.style("font-size", "12px");
+  tb.position(width*0.1, height*0.1);
+  tb.size(500, 500);
+
 }
 
 function draw()
@@ -55,8 +60,11 @@ function draw()
   noStroke();
   ellipse(x1, y1, 15, 15);
 
-  text(curstyle, width*0.1, height*0.1);
-  text("click around.", width*0.1, height*0.8);
+  var hs = '';
+  hs+= 'p5.Ease(): ' + curstyle + '<br><br>';
+  hs+= 'click around.';
+
+  tb.html(hs);
 
   var f = constrain(dist(x1, y1, px, py)*100., 0, 20000);
   var a = constrain(dist(x1, y1, px, py), 0, 0.3);
