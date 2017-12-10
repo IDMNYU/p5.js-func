@@ -34,7 +34,9 @@ Quite a bit of this code is adapted from other sources, notably:
 *  Robert Bristow-Johnson's Audio EQ Cookbook: http://www.musicdsp.org/files/Audio-EQ-Cookbook.txt
 *  Corban Brook's dsp.js: https://github.com/corbanbrook/dsp.js/
 
-## p5.Gen Example (direct evaluation)
+## Examples
+
+### p5.Gen Example (direct evaluation)
 ```javascript
 var g = new p5.Gen(); // function generator object
 // evaluate the value 20% (0.2) into a wavetable defined by harmonic strengths 1., 0.5, and 0.3:
@@ -44,7 +46,7 @@ g.bpf(0.5, [0, 0, 1, 1, 2, 0]); // 1.
 // evaluate the value 3/4ths (0.75) into a hamming window function
 g.window(0.75, "hamming"); 0.5400000000000001
 ```
-## p5.Gen Example (array filling)
+### p5.Gen Example (array filling)
 ```javascript
 var g = new p5.Gen(); // function generator object
 // assign 'foo' to a 512-point Array containing the wavetable defined by harmonic strengths 1., 0.5, and 0.3:
@@ -60,7 +62,7 @@ fplot(bar, "color: green; font-size:9px;"); // plot
 console.log(biz); // print
 fplot(biz, "color: blue; font-size:9px;"); // plot
 ```
-## p5.Ease Example (direct evaluation)
+### p5.Ease Example (direct evaluation)
 ```javascript
 var e = new p5.Ease(); // easing function object
 e.listAlgos(); // return an array listing all the algorithms
@@ -69,7 +71,7 @@ e.circularIn(0.5); // 0.1339745962155614
 // calculate the value a quarter (0.25) through the 'doubleCircularOgee' function with a coefficient of 0.5:
 e.doubleCircularOgee(0.25, 0.5); // 0.4330127018922193
 ```
-## p5.Ease Example (array filling)
+### p5.Ease Example (array filling)
 ```javascript
 var e = new p5.Ease(); // easing function object
 // assign 'foo' to a 10-point Array filled with a "doubleQuadraticBezie" easing function:
@@ -85,7 +87,7 @@ fplot(bar, "color: green; font-size:9px;"); // plot
 console.log(biz); // print
 fplot(biz, "color: blue; font-size:9px;"); // plot
 ```
-## p5.ArrayEval Example
+### p5.ArrayEval Example
 ```javascript
 var a = new p5.ArrayEval(); // array evaluation object
 var foo = a.eval('u', 10); // 10-point 'normal map' (0 to 1)
@@ -95,7 +97,7 @@ console.log(bar); // print
 var biz = a.eval3d('sqrt(su*su+sv*sv+sw*sw)', 8, 8, 8); // 8x8x8 array with a volumetric distance function
 console.log(biz); // print
 ```
-## p5.Filt Example
+### p5.Filt Example
 ```javascript
 var f = new p5.Filt(60); // filter object with math calibrated to 60Hz sampling rate (screen rate)
 f.set("lowpass", 3, 0.7); // set to a lowpass filter with a cutoff frequency of 3Hz and a Q of 0.7
@@ -114,7 +116,7 @@ fplot(ip, "color: red; font-size:9px;"); // plot
 console.log(op); // print
 fplot(op, "color: blue; font-size:9px;"); // plot
 ```
-## p5.FastFourierTransform Example
+### p5.FastFourierTransform Example
 ```javascript
 var fft = new p5.FastFourierTransform(512, 60); // 512-point FFT calibrated to 60Hz sampling rate (screen rate)
 var g = new p5.Gen(); // function generator object
@@ -125,7 +127,7 @@ var op = fft.spectrum; // output array with 256 points of magnitude
 console.log(op); // print
 fplot(op, "color: green; font-size:9px;"); // plot
 ```
-## Examples
+### More Examples
 
 * [p5.Gen() Simple Panning](https://idmnyu.github.io/p5.js-func/examples/gen1_pan) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/gen1_pan/sketch.js)
 * [p5.Gen() Harmonics](https://idmnyu.github.io/p5.js-func/examples/gen2_harmonics) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/gen2_harmonics/sketch.js)
