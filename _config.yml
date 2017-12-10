@@ -1,4 +1,4 @@
-theme: jekyll-theme-tactile
+theme: jekyll-theme-slate
 title: [p5.js-func]
 description: [Function generators for p5.js]
 show_downloads: "true"
