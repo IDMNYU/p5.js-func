@@ -1,3 +1,5 @@
+![IDM Logo](https://raw.githubusercontent.com/IDMNYU/assets/master/IheartDM_long.png "Integrated Digital Media")
+
 # p5.js-func
 Function Generators for [p5.js](http://p5js.org)
 
