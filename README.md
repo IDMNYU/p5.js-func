@@ -35,9 +35,9 @@ Quite a bit of this code is adapted from other sources, notably:
 *  Corban Brook's dsp.js: https://github.com/corbanbrook/dsp.js/
 
 ## Download
-* [GitHub Repository](https://github.com/IDMNYU/p5.js-func)
-* [Library Only](https://raw.githubusercontent.com/IDMNYU/p5.js-func/master/lib/p5.func.js)
-* [Minimized Library](https://raw.githubusercontent.com/IDMNYU/p5.js-func/master/lib/p5.func.min.js)
+* [GitHub repository](https://github.com/IDMNYU/p5.js-func)
+* [Library only](https://raw.githubusercontent.com/IDMNYU/p5.js-func/master/lib/p5.func.js)
+* [Minimized library](https://raw.githubusercontent.com/IDMNYU/p5.js-func/master/lib/p5.func.min.js)
 
 ## Examples
 
