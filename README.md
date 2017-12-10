@@ -127,21 +127,21 @@ fplot(op, "color: green; font-size:9px;"); // plot
 ```
 ## Examples
 
-* [p5.ArrayEval() 2D Grid](https://idmnyu.github.io/p5.js-func/examples/arrayeval1_grid) ([source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/arrayeval1_grid/sketch.js))
-* [p5.ArrayEval() Curve Generator](https://idmnyu.github.io/p5.js-func/examples/arrayeval2_curve) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/arrayeval2_curve/sketch.js)
-* [p5.Ease() Simple Panning](https://idmnyu.github.io/p5.js-func/examples/easing1_pan) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/easing1_pan/sketch.js)
-* [p5.Ease() Wah-wah](https://idmnyu.github.io/p5.js-func/examples/easing2_wah) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/easing2_wah/sketch.js)
-* [p5.Ease() Animation Easing](https://idmnyu.github.io/p5.js-func/examples/easing3_animation) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/easing3_animation/sketch.js)
-* [p5.Ease() Array Example](https://idmnyu.github.io/p5.js-func/examples/easing4_fillArray) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/easing4_fillArray/sketch.js)
-* [p5.Ease() Console Plotting](https://idmnyu.github.io/p5.js-func/examples/easing5_fplot) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/easing5_fplot/sketch.js)
-* [p5.Ease() Screen Plotting](https://idmnyu.github.io/p5.js-func/examples/easing6_plot) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/easing6_plot/sketch.js)
-* [p5.Filt() Smoothing Values](https://idmnyu.github.io/p5.js-func/examples/filter1_smooth) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/filter1_smooth/sketch.js)
-* [p5.Filt() Interactive Filter](https://idmnyu.github.io/p5.js-func/examples/filter2_plot) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/filter2_plot/sketch.js)
-* [p5.Fourier() Example](https://idmnyu.github.io/p5.js-func/examples/fourier1_plot) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/fourier1_plot/sketch.js)
-* [p5.Gen() Simple Panning](https://idmnyu.github.io/p5.js-func/examples/gen1_pan) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/gen1_pan/sketch.js)
-* [p5.Gen() Harmonics](https://idmnyu.github.io/p5.js-func/examples/gen2_harmonics) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/gen2_harmonics/sketch.js)
-* [p5.Gen() Console Plotting](https://idmnyu.github.io/p5.js-func/examples/gen3_fplot) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/gen3_fplot/sketch.js)
-* [p5.Gen() Screen Plotting](https://idmnyu.github.io/p5.js-func/examples/gen4_plot) [source](https://github.com/IDMNYU/p5.js-func/blob/master/examples/gen4_plot/sketch.js)
+* [p5.ArrayEval() 2D Grid](https://idmnyu.github.io/p5.js-func/examples/arrayeval1_grid) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/arrayeval1_grid/sketch.js)
+* [p5.ArrayEval() Curve Generator](https://idmnyu.github.io/p5.js-func/examples/arrayeval2_curve) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/arrayeval2_curve/sketch.js)
+* [p5.Ease() Simple Panning](https://idmnyu.github.io/p5.js-func/examples/easing1_pan) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/easing1_pan/sketch.js)
+* [p5.Ease() Wah-wah](https://idmnyu.github.io/p5.js-func/examples/easing2_wah) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/easing2_wah/sketch.js)
+* [p5.Ease() Animation Easing](https://idmnyu.github.io/p5.js-func/examples/easing3_animation) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/easing3_animation/sketch.js)
+* [p5.Ease() Array Example](https://idmnyu.github.io/p5.js-func/examples/easing4_fillArray) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/easing4_fillArray/sketch.js)
+* [p5.Ease() Console Plotting](https://idmnyu.github.io/p5.js-func/examples/easing5_fplot) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/easing5_fplot/sketch.js)
+* [p5.Ease() Screen Plotting](https://idmnyu.github.io/p5.js-func/examples/easing6_plot) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/easing6_plot/sketch.js)
+* [p5.Filt() Smoothing Values](https://idmnyu.github.io/p5.js-func/examples/filter1_smooth) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/filter1_smooth/sketch.js)
+* [p5.Filt() Interactive Filter](https://idmnyu.github.io/p5.js-func/examples/filter2_plot) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/filter2_plot/sketch.js)
+* [p5.Fourier() Example](https://idmnyu.github.io/p5.js-func/examples/fourier1_plot) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/fourier1_plot/sketch.js)
+* [p5.Gen() Simple Panning](https://idmnyu.github.io/p5.js-func/examples/gen1_pan) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/gen1_pan/sketch.js)
+* [p5.Gen() Harmonics](https://idmnyu.github.io/p5.js-func/examples/gen2_harmonics) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/gen2_harmonics/sketch.js)
+* [p5.Gen() Console Plotting](https://idmnyu.github.io/p5.js-func/examples/gen3_fplot) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/gen3_fplot/sketch.js)
+* [p5.Gen() Screen Plotting](https://idmnyu.github.io/p5.js-func/examples/gen4_plot) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/gen4_plot/sketch.js)
 
 ## Reference
 
