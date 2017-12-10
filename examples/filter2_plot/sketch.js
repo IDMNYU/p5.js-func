@@ -20,12 +20,12 @@ var sel, fslider, qslider, gslider; // p5.dom elements
 
 function setup()
 {
-  createCanvas(1280, 720);
+  createCanvas(800, 600);
   frameRate(FR);
   background(255);
   fill(0);
 
-  textSize(18);
+  textSize(12);
 
   filt = new p5.Filt(FS);
   filt.set("LPF", 125, 5, 0);
@@ -39,7 +39,7 @@ function setup()
 
   // p5.dom menu:
   sel = createSelect();
-  sel.position(250, 25);
+  sel.position(250, 70-12);
   sel.option('LPF');
   sel.option('HPF');
   sel.option('BPF');
@@ -52,15 +52,15 @@ function setup()
   sel.changed(typeMenu);
 
   fslider = createSlider(0, FS/2, 125, 0.01);
-  fslider.position(350, 25);
+  fslider.position(350, 70-12);
   fslider.changed(fsliderChanged);
 
   qslider = createSlider(0.1, 30, 5, 0.01);
-  qslider.position(500, 25);
+  qslider.position(500, 70-12);
   qslider.changed(qsliderChanged);
 
   gslider = createSlider(-32., 32., 0., 0.01);
-  gslider.position(650, 25);
+  gslider.position(650, 70-12);
   gslider.changed(gsliderChanged);
 
 }
@@ -73,16 +73,17 @@ function draw()
   }
 
   // params:
-  fill(255);
-  textSize(12);
-  rect(40, 70-12, 200, height*0.025);
   fill(0);
-  text('filt.set(\"' + filt.type + '\", ' + filt.f0 + ', ' + filt.Q + ', ' + filt.dB + ');', 45, 70);
 
-  text('type: ' + filt.type, 250, 15);
-  text('frequency: ' + filt.f0, 350, 15);
-  text('Q: ' + filt.Q, 500, 15);
-  text('gain: ' + filt.dB, 650, 15);
+  textSize(18);
+  text("p5.Filt()", 40, 40);
+  textSize(12);
+  text('type: ' + filt.type, 250, 40);
+  text('frequency: ' + filt.f0, 350, 40);
+  text('Q: ' + filt.Q, 500, 40);
+  text('gain: ' + filt.dB, 650, 40);
+
+  text('filt.set(\"' + filt.type + '\", ' + filt.f0 + ', ' + filt.Q + ', ' + filt.dB + ');', width/2, height/2);
 
 
   fill(240);
@@ -115,12 +116,11 @@ function drawFFTandClear()
 
   background(255);
   fill(0);
-  textSize(18);
-  text("p5.Filt()", 40, 40);
-  text("input:", width*0.1, height*0.15);
-  text("output:", width*0.1, height*0.55);
-  text("peak: " + ifft.getBandFrequency(ifft.peakBand).toFixed(4) + "Hz at " + ifft.peak.toFixed(4), width*0.6, height*0.15);
-  text("peak: " + offt.getBandFrequency(offt.peakBand).toFixed(4) + "Hz at " + offt.peak.toFixed(4), width*0.6, height*0.55);
+
+  text("var n = random(-1., 1.);", width*0.1, height*0.18);
+  text("var f = filt.tick(n);", width*0.1, height*0.58);
+  text("peak: " + ifft.getBandFrequency(ifft.peakBand).toFixed(4) + "Hz at " + ifft.peak.toFixed(4), width*0.6, height*0.18);
+  text("peak: " + offt.getBandFrequency(offt.peakBand).toFixed(4) + "Hz at " + offt.peak.toFixed(4), width*0.6, height*0.58);
 
   fill(240);
   rect(width*0.6, height*0.2, width*0.35, height*0.2);
@@ -144,10 +144,6 @@ function drawFFTandClear()
     vertex(xs, ys);
   }
   endShape();
-
-  // var inv = Array.from(offt.inverse(offt.real, offt.imag));
-  // console.log(inv);
-  // fplot(Array.from(inv));
 
 }
 

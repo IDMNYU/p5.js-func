@@ -21,13 +21,14 @@ var current = 0;
 
 function setup()
 {
-  createCanvas(1280, 720);
+  createCanvas(800, 600);
   t = e.eval2d(s[current], w, h);
 
-  wstep = width/w*0.75;
-  hstep = height/h;
+  wstep = 1280/w*0.75;
+  hstep = 720/h;
 
   textSize(18);
+  noLoop();
 }
 
 function draw()
@@ -39,10 +40,11 @@ function draw()
   text('var e = new p5.ArrayEval();', 20, 20);
   text('var s = \'' + s[current] + '\';', 20, 50);
   text('var t = e.eval2d(s, 40, 30);', 20, 80)
+  text('press any key to switch equations.', 20, 500)
 
   stroke(0, 0, 255);
   scale(0.5);
-  translate(width/4, height/4);
+  translate(320, 180);
   for(var i in t)
   {
     for(var j in t[i])
@@ -58,4 +60,5 @@ function keyTyped()
 {
   current = (current+1)%s.length;
   t = e.eval2d(s[current], w, h);
+  redraw();
 }

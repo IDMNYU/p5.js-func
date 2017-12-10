@@ -35,14 +35,14 @@ function draw()
   noStroke();
   textAlign(LEFT);
 
-  var p = random(0, 1);
+  var p = random();
   var q = f.tick(p);
 
   var ss = 'var f = new p5.Filt();';
   text(ss, width*0.1, height*0.1);
   var ss = 'f.set(\'lowpass\', 3, 0.7);';
   text(ss, width*0.1, height*0.15);
-  var ss = 'var p = '+p.toFixed(2)+';';
+  var ss = 'var p = random();';
   text(ss, width*0.1, height*0.2);
   var ss = 'var q = f.tick(p);';
   text(ss, width*0.1, height*0.25);

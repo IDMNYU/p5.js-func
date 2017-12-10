@@ -109,10 +109,26 @@ function draw()
 
 function drawTab(_tab, _algo, _np)
 {
+  // box
   stroke(0, 0, 0);
   noFill();
   rect(width*0.25, height*0.25, width*0.5, height*0.5);
 
+  stroke(87, 6, 140);
+  fill(226, 225, 221);
+
+  // curve
+  beginShape();
+  for(var i = 0;i<_tab.length;i++)
+  {
+    var x = i/(_tab.length-1)*width*0.5+width*0.25;
+    var y = map(_tab[i], 0, 1, height*0.75, height*0.25);
+    ellipse(x, y, 5, 5);
+    vertex(x, y);
+  }
+  endShape();
+
+  // labels
   noStroke();
   fill(0);
 
@@ -125,20 +141,8 @@ function drawTab(_tab, _algo, _np)
   textSize(24);
   var ma = max(_tab);
   var mi = min(_tab);
-  text('-1', width*0.23, height*0.75);
+  text('0', width*0.23, height*0.75);
   text(_algo, width*0.23, height*0.5);
   text('1', width*0.23, height*0.25);
 
-  stroke(87, 6, 140);
-  fill(226, 225, 221);
-
-  beginShape();
-  for(var i = 0;i<_tab.length;i++)
-  {
-    var x = i/(_tab.length-1)*width*0.5+width*0.25;
-    var y = map(_tab[i], -1, 1, height*0.75, height*0.25);
-    ellipse(x, y, 5, 5);
-    vertex(x, y);
-  }
-  endShape();
 }

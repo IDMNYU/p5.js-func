@@ -142,12 +142,10 @@ function draw()
 
 function drawTab(_tab, _algo, _args, _np)
 {
+  // box
   stroke(0, 0, 0);
   noFill();
   rect(width*0.25, height*0.25, width*0.5, height*0.5);
-
-  noStroke();
-  fill(0);
 
   var as = '';
   if(typeof(_args)=== 'string') as='\''+_args+'\'';
@@ -165,21 +163,10 @@ function drawTab(_tab, _algo, _args, _np)
     as = as.trim()+']';
 
   }
-  //text(as, width*0.5, height*0.23);
-  //text(_np + " points", width*0.5, height*0.8);
-  var ss = 'g.fillArray(\''+_algo + '\', ' + _np + ', ' + as + ');';
-  textAlign(CENTER);
-  textSize(32);
-  text(ss, width*0.5, height*0.82);
-
-  textAlign(RIGHT);
-  textSize(24);
   var ma = max(_tab);
   var mi = min(_tab);
-  text(mi.toFixed(3), width*0.23, height*0.75);
-  text(_algo, width*0.23, height*0.5);
-  text(ma.toFixed(3), width*0.23, height*0.25);
 
+  // curve
   stroke(87, 6, 140);
   fill(226, 225, 221);
 
@@ -192,4 +179,20 @@ function drawTab(_tab, _algo, _args, _np)
     vertex(x, y);
   }
   endShape();
+
+  // labels
+  noStroke();
+  fill(0);
+
+  var ss = 'g.fillArray(\''+_algo + '\', ' + _np + ', ' + as + ');';
+  textAlign(CENTER);
+  textSize(32);
+  text(ss, width*0.5, height*0.82);
+
+  textAlign(RIGHT);
+  textSize(24);
+  text(mi.toFixed(3), width*0.23, height*0.75);
+  text(_algo, width*0.23, height*0.5);
+  text(ma.toFixed(3), width*0.23, height*0.25);
+
 }

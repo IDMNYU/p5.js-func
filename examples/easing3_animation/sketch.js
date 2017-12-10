@@ -56,6 +56,7 @@ function draw()
   ellipse(x1, y1, 15, 15);
 
   text(curstyle, width*0.1, height*0.1);
+  text("click around.", width*0.1, height*0.8);
 
   var f = constrain(dist(x1, y1, px, py)*100., 0, 20000);
   var a = constrain(dist(x1, y1, px, py), 0, 0.3);

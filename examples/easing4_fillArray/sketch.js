@@ -34,6 +34,7 @@ function draw()
   noStroke();
   fill(0);
   text(curstyle + ": " + npoints + " points", width*0.1, height*0.1);
+  text("mouseX = # points; <space> = new algorithm.", width*0.1, height*0.8);
 
   stroke(0, 0, 255);
   fill(0, 32);

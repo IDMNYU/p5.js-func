@@ -17,7 +17,7 @@ var fft;
 
 function setup()
 {
-  createCanvas(1280, 720);
+  createCanvas(800, 600);
   noLoop();
   background(255);
   fill(0);
@@ -25,7 +25,6 @@ function setup()
   textSize(18);
 
   x = 0;
-
 
   fft = new p5.FastFourierTransform(FFTSIZE, FS);
 
@@ -36,18 +35,10 @@ function setup()
 
   win = gen.fillArray('window', FFTSIZE, 'hanning');
 
-
-
-  drawFFTandClear();
-
+  noLoop();
 }
 
 function draw()
-{
-
-}
-
-function drawFFTandClear()
 {
   fft.forward(multiplyArray(sig, win));
 
@@ -71,5 +62,4 @@ function drawFFTandClear()
     ellipse(xs, ys, 5, 5);
   }
   endShape();
-
 }

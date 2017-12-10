@@ -5,7 +5,7 @@ var e = new p5.ArrayEval();
 var l = 2000;
 var wstep, hstep;
 var t; // array
-var z = 100; // zoom factor in pixels
+var z = 75; // zoom factor in pixels
 
 var s = [];
 
@@ -38,48 +38,43 @@ var current = 0;
 
 function setup()
 {
-  createCanvas(1280, 720);
+  createCanvas(800, 600);
   textSize(12);
   noLoop();
-  doit();
 }
 
 function draw()
 {
+    t = e.eval(s[current], l);
 
-}
+    resetMatrix();
+    background(255);
 
-function doit()
-{
-  t = e.eval(s[current], l);
+    stroke(128, 128, 255);
+    noFill();
+    translate(width/2, height/2); // put 0, 0 at center
+    beginShape();
+    for(var i = 0;i<t.length;i++)
+    {
+      vertex(t[i][0]*z-z/2, t[i][1]*z-z/2);
+      ellipse(t[i][0]*z-z/2, t[i][1]*z-z/2, 5, 5);
+    }
+    endShape();
 
-  resetMatrix();
-  background(255);
+    resetMatrix();
+    fill(0);
+    noStroke();
+    text('var e = new p5.ArrayEval();', 20, 20);
+    text('var s = \'' + s[current] + '\';', 20, 50);
+    text('var t = e.eval(s, ' + l + ');', 20, 80)
+    text('press any key to switch equations.', 20, 500)
 
-  stroke(128, 128, 255);
-  noFill();
-  translate(width/2, height/2); // put 0, 0 at center
-  beginShape();
-  for(var i = 0;i<t.length;i++)
-  {
-    vertex(t[i][0]*z-z/2, t[i][1]*z-z/2);
-    ellipse(t[i][0]*z-z/2, t[i][1]*z-z/2, 5, 5);
-  }
-  endShape();
-
-  resetMatrix();
-  fill(0);
-  noStroke();
-  text('var e = new p5.ArrayEval();', 20, 20);
-  text('var s = \'' + s[current] + '\';', 20, 50);
-  text('var t = e.eval(s, ' + l + ');', 20, 80)
-
-  current = (current+1)%s.length;
+    current = (current+1)%s.length;
 }
 
 function keyTyped()
 {
-  doit();
+  redraw();
 }
 
 // sin4 function
