@@ -35,6 +35,7 @@ function setup()
   tb.size(500, 500);
 
   noLoop();
+
 }
 
 function draw()
