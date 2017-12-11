@@ -188,11 +188,11 @@ fplot(op, "color: green; font-size:9px;"); // plot
 ### p5.Gen
 
 *methods*
-* **harmonics(x, args)**: periodic function of harmonic strengths determined by the Array *args*. *x* is 0 to 1. Returns f(x).
-* **triples(x, args)**: function of summed sines. The *args* are an Array of triples of frequency multiplier, amplitude, phase. *x* is 0 to 1. Returns f(x).
-* **chebyshev(x, args)**: function of chebyshev polynomials of the first kind. These polynomials will waveshape a sinusoid into a pre-defined spectrum, determined by the Array *args*. *x* is 0 to 1. Returns f(x).
-* **bpf(x, args)**: breakpoint function of line segments defined by Array *args* in *time*, *amplitude* pairs. *x* is 0 to 1. returns f(x).
-* **random(x, type)**: generates random numbers according to *type*. *x* is the random number seed. A missing seed value (or a seed of -1) will use the millis() function to generate a seed. Returns f(x). Supported random functions are:
+* **harmonics(x, [h1... hn])**: periodic function of harmonic strengths defined by an Array passed as the second argument. *x* is 0 to 1. Returns f(x).
+* **triples(x, [f1, a1, p1... fn, an, pn)**: function of summed sines. The second argument is an Array of triples of frequency multiplier, amplitude, phase. *x* is 0 to 1. Returns f(x).
+* **chebyshev(x, [t1... tn])**: function of chebyshev polynomials of the first kind. These polynomials will waveshape a sinusoid into a pre-defined spectrum, determined by values in the Array passed as the second argument. *x* is 0 to 1. Returns f(x).
+* **bpf(x, [t1, a1... tn, an])**: breakpoint function of line segments defined in *time*, *amplitude* pairs in the Array passed as the second argument. *x* is 0 to 1. returns f(x).
+* **random(seed, type)**: generates random numbers according to *type*. *seed* is the random number seed. A missing seed value (or a seed of -1) will use the millis() function to generate a seed. Returns values are in the range of 0 to 1. Supported random functions are:
   * "linear" / "even"
   * "low"
   * "high"
