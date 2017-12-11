@@ -43,22 +43,34 @@ Quite a bit of this code is adapted from other sources, notably:
 ### p5.Gen Example (direct evaluation)
 ```javascript
 var g = new p5.Gen(); // function generator object
-// evaluate the value 20% (0.2) into a wavetable defined by harmonic strengths 1., 0.5, and 0.3:
+
+// evaluate the value 20% (0.2) into a wavetable 
+// defined by harmonic strengths 1., 0.5, and 0.3:
 g.harmonics(0.2, [1.0, 0.5, 0.3]); // 1.0686135667536483
-// evaluate the value halfway (0.5) into a breakpoint function rising from 0 to 1 then falling to 0:
+
+// evaluate the value halfway (0.5) into a breakpoint function 
+// rising from 0 to 1 then falling to 0:
 g.bpf(0.5, [0, 0, 1, 1, 2, 0]); // 1.
-// evaluate the value 3/4ths (0.75) into a hamming window function
+
+// evaluate the value 3/4ths (0.75) into a hamming window function:
 g.window(0.75, "hamming"); 0.5400000000000001
 ```
 ### p5.Gen Example (array filling)
 ```javascript
 var g = new p5.Gen(); // function generator object
-// assign 'foo' to a 512-point Array containing the wavetable defined by harmonic strengths 1., 0.5, and 0.3:
+
+// assign 'foo' to a 512-point Array containing the wavetable 
+// defined by harmonic strengths 1., 0.5, and 0.3:
 var foo = g.fillArray("harmonics", 512, [1.0, 0.5, 0.3]);
-// assign 'bar' to a 1000-point Float32Array containing a single sine wave:
+
+// assign 'bar' to a 1000-point Float32Array containing a 
+// single sine wave:
 var bar = g.fillFloat32Array("waveform", 1000, "sine");
-// assign 100 points of low-weighted random numbers to the Float64Array 'biz':
+
+// assign 100 points of low-weighted random numbers to 
+// the Float64Array 'biz':
 var biz = g.fillFloat64Array("random", 100, "low");
+
 console.log(foo); // print
 fplot(foo, "color: red; font-size:9px;"); // plot
 console.log(bar); // print
@@ -70,20 +82,31 @@ fplot(biz, "color: blue; font-size:9px;"); // plot
 ```javascript
 var e = new p5.Ease(); // easing function object
 e.listAlgos(); // return an array listing all the algorithms
-// calculate the value halfway (0.5) through the 'circularIn' easing function:
+
+// calculate the value halfway (0.5) through 
+// the 'circularIn' easing function:
 e.circularIn(0.5); // 0.1339745962155614
-// calculate the value a quarter (0.25) through the 'doubleCircularOgee' function with a coefficient of 0.5:
+
+// calculate the value a quarter (0.25) through 
+// the 'doubleCircularOgee' function with a coefficient of 0.5:
 e.doubleCircularOgee(0.25, 0.5); // 0.4330127018922193
 ```
 ### p5.Ease Example (array filling)
 ```javascript
 var e = new p5.Ease(); // easing function object
-// assign 'foo' to a 10-point Array filled with a "doubleQuadraticBezie" easing function:
+
+// assign 'foo' to a 10-point Array filled with 
+// a "doubleQuadraticBezie" easing function:
 var foo = e.fillArray("doubleQuadraticBezier", 10);
-// assign 'bar' to a 100-point Float32Array filled with a "smoothStep" easing function:
+
+// assign 'bar' to a 100-point Float32Array filled with 
+// a "smoothStep" easing function:
 var bar = e.fillFloat32Array("smoothStep", 100);
-// assign a 1000-point "doubleCircularSigmoid" with a coefficient of 0.8 to the Float64Array 'biz':
-var biz = e.fillFloat64Array("doubleCircularSigmoid", 1000, 0.8);;
+
+// assign a 1000-point "doubleCircularSigmoid" with 
+// a coefficient of 0.8 to the Float64Array 'biz':
+var biz = e.fillFloat64Array("doubleCircularSigmoid", 1000, 0.8);
+
 console.log(foo); // print
 fplot(foo, "color: red; font-size:9px;"); // plot
 console.log(bar); // print
@@ -94,17 +117,26 @@ fplot(biz, "color: blue; font-size:9px;"); // plot
 ### p5.ArrayEval Example
 ```javascript
 var a = new p5.ArrayEval(); // array evaluation object
-var foo = a.eval('u', 10); // 10-point 'normal map' (0 to 1)
+
+// 10-point 'normal map' (0 to 1):
+var foo = a.eval('u', 10); 
+
+// 20x20 two-dimensional signed normal map (-1 to 1):
+var bar = a.eval2d(['su', 'sv'], 20, 20); 
+
+// 8x8x8 array with a volumetric distance function:
+var biz = a.eval3d('sqrt(su*su+sv*sv+sw*sw)', 8, 8, 8); 
+
 console.log(foo); // print
-var bar = a.eval2d(['su', 'sv'], 20, 20); // 20x20 two-dimensional signed normal map (-1 to 1)
 console.log(bar); // print
-var biz = a.eval3d('sqrt(su*su+sv*sv+sw*sw)', 8, 8, 8); // 8x8x8 array with a volumetric distance function
 console.log(biz); // print
 ```
 ### p5.Filt Example
 ```javascript
-var f = new p5.Filt(60); // filter object with math calibrated to 60Hz sampling rate (screen rate)
-f.set("lowpass", 3, 0.7); // set to a lowpass filter with a cutoff frequency of 3Hz and a Q of 0.7
+// filter object with math calibrated to a 60Hz sampling rate:
+var f = new p5.Filt(60); 
+// lowpass filter with a cutoff frequency of 3Hz and a Q of 0.7:
+f.set("lowpass", 3, 0.7); 
 
 var ip = new Array(100); // input array
 var op = new Array(100); // output array
@@ -122,12 +154,14 @@ fplot(op, "color: blue; font-size:9px;"); // plot
 ```
 ### p5.FastFourierTransform Example
 ```javascript
-var fft = new p5.FastFourierTransform(512, 60); // 512-point FFT calibrated to 60Hz sampling rate (screen rate)
+// 512-point FFT calibrated to a 60Hz sampling rate:
+var fft = new p5.FastFourierTransform(512, 60); 
 var g = new p5.Gen(); // function generator object
 
 var ip = g.fillArray("waveform", 512, "saw"); // input array
 fft.forward(ip); // compute FFT
-var op = fft.spectrum; // output array with 256 points of magnitude
+
+var op = fft.spectrum; // output array (256 points of magnitude)
 console.log(op); // print
 fplot(op, "color: green; font-size:9px;"); // plot
 ```
