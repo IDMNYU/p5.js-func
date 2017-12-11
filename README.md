@@ -188,11 +188,11 @@ fplot(op, "color: green; font-size:9px;"); // plot
 ### p5.Gen
 
 *methods*
-* **harmonics(x, args)**: periodic function of harmonic strengths determined by the Array *args*. *x* is 0 to 1. Returns f(x).
-* **triples(x, args)**: function of summed sines. The *args* are an Array of triples of frequency multiplier, amplitude, phase. *x* is 0 to 1. Returns f(x).
-* **chebyshev(x, args)**: function of chebyshev polynomials of the first kind. These polynomials will waveshape a sinusoid into a pre-defined spectrum, determined by the Array *args*. *x* is 0 to 1. Returns f(x).
-* **bpf(x, args)**: breakpoint function of line segments defined by Array *args* in *time*, *amplitude* pairs. *x* is 0 to 1. returns f(x).
-* **random(x, type)**: generates random numbers according to *type*. *x* is the random number seed. A missing seed value (or a seed of -1) will use the millis() function to generate a seed. Returns f(x). Supported random functions are:
+* **harmonics(x, [h1... hn])**: periodic function of harmonic strengths defined by an Array passed as the second argument. *x* is 0 to 1. Returns f(x).
+* **triples(x, [f1, a1, p1... fn, an, pn)**: function of summed sines. The second argument is an Array of triples of frequency multiplier, amplitude, phase. *x* is 0 to 1. Returns f(x).
+* **chebyshev(x, [t1... tn])**: function of chebyshev polynomials of the first kind. These polynomials will waveshape a sinusoid into a pre-defined spectrum, determined by values in the Array passed as the second argument. *x* is 0 to 1. Returns f(x).
+* **bpf(x, [t1, a1... tn, an])**: breakpoint function of line segments defined in *time*, *amplitude* pairs in the Array passed as the second argument. *x* is 0 to 1. returns f(x).
+* **random(seed, type)**: generates random numbers according to *type*. *seed* is the random number seed. A missing seed value (or a seed of -1) will use the millis() function to generate a seed. Returns values are in the range of 0 to 1. Supported random functions are:
   * "linear" / "even"
   * "low"
   * "high"
@@ -302,13 +302,13 @@ For all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 
 ### Misc. Functions
 
-* **imap(v, a, b, c, d)**: constrainted integer mapping function; great for Array index lookups originating from a continuous input. *v* is the input. *a* and *b* are the minimum and maximum range of the expected input. *c* and *d* are the range of the output. Syntatically equivalent to the **map()** function in p5.
+* **imap(x, a, b, c, d)**: constrainted integer mapping function; great for Array index lookups originating from a continuous input. *x* is the input. *a* and *b* are the minimum and maximum range of the expected input. *c* and *d* are the range of the output. Syntatically equivalent to the **map()** function in p5.
 * **pickrand(array)** : return a random element from *array*.
 * **createArray(len)**: return an n-dimensional Array of length *len*, where *len* can be a list of arguments.
 * **normalizeArray(array)**: returns a *normalized* copy of an array (where the absolute maximum value is 1.0).
 * **resizeArray(array, newlen)**: returns a copy of *array* resized to length *newlen*. Upsampling is done by linear interpolation.
-* **multiplyArray(a1, a2)**: multiplies two arrays into a new array.
-* **addArray(a1, a2)**: adds two arrays into a new array.
+* **multiplyArray(array1, array2)**: multiplies two arrays into a new array.
+* **addArray(array1, array2)**: adds two arrays into a new array.
 * **sumArray(array)**: returns the sum of *array*.
 * **f2ib(x)**: float->int coercion with bit parity.
 * **ib2f(x)**: int->float coercion with bit parity.
