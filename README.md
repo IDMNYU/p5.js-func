@@ -20,6 +20,8 @@ Shiffman, it's pronounced *funk*.
 The library also contains a number of utility functions for p5:
 
 *  **imap()** : constrainted integer mapping function
+*  **wrap()** : wrapping function
+*  **fold()** : folding function
 *  **pickrand()** : return a random element from an array
 *  **createArray()** / **normalizeArray()** / **resizeArray()** / **multiplyArray()** / **addArray()** / **sumArray()** : array utility functions
 *  **f2ib()** / **ib2f()** : int<->float coercion with bit parity
@@ -303,6 +305,8 @@ For all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 ### Misc. Functions
 
 * **imap(x, a, b, c, d)**: constrainted integer mapping function; great for Array index lookups originating from a continuous input. *x* is the input. *a* and *b* are the minimum and maximum range of the expected input. *c* and *d* are the range of the output. Syntatically equivalent to the **map()** function in p5.
+* **wrap(x, min, max)** : wrap value *x* between *min* and *max*. Similar to the modulo operator with offset, but works as expected with negative values.
+* **fold(x, min, max)** : fold (reflect) value *x* between *min* and *max*. Values out of range will be folded / reflected back in range, alternating between a wrapped and an inverted wrapped value.
 * **pickrand(array)** : return a random element from *array*.
 * **createArray(len)**: return an n-dimensional Array of length *len*, where *len* can be a list of arguments.
 * **normalizeArray(array)**: returns a *normalized* copy of an array (where the absolute maximum value is 1.0).
