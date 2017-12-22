@@ -55,7 +55,7 @@ g.harmonics(0.2, [1.0, 0.5, 0.3]); // 1.0686135667536483
 g.bpf(0.5, [0, 0, 1, 1, 2, 0]); // 1.
 
 // evaluate the value 3/4ths (0.75) into a hamming window function:
-g.window(0.75, "hamming"); 0.5400000000000001
+g.window(0.75, "hamming"); // 0.5400000000000001
 ```
 ### p5.Gen Example (array filling)
 ```javascript
