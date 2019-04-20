@@ -15,6 +15,11 @@ var sig = new Array(FFTSIZE); // collector signal (input)
 var win = new Array(FFTSIZE); // window function
 
 var fft;
+var phasedelta = new Array(FFTSIZE);
+for(let i = 0;i<phasedelta.length;i++)
+{
+  phasedelta[i] = 0;
+}
 
 var tb; // textbox
 
@@ -56,6 +61,11 @@ function draw()
   sig = p5fft.waveform(); // get the time domain values from an audio input
   //console.log(sig);
   fft.forward(multiplyArray(sig, win));
+  var temp = multiplyArray(fft.phase, -1);
+  phasedelta = addArray(phasedelta, temp); // compute running phase
+  //console.log(phasedelta);
+  // look here for how to compute instantaneous frequency:
+  // https://dsp.stackexchange.com/questions/24487/calculate-and-interpret-the-instantaneous-frequency
 
   background(255);
 
