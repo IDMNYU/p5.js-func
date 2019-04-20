@@ -22,13 +22,12 @@ The library also contains a number of utility functions for p5:
 *  **imap()** : constrainted integer mapping function
 *  **wrap()** : wrapping function
 *  **fold()** : folding function
-*  **pickrand()** : return a random element from an array
-*  **createArray()** / **normalizeArray()** / **resizeArray()** / **multiplyArray()** / **addArray()** / **sumArray()** : array utility functions
+*  **createArray()** / **normalizeArray()** / **resizeArray()** / **multiplyArray()** / **addArray()** / **subtractArray** / **divideArray** / **moduloArray** / **sumArray()** : array utility functions
 *  **f2ib()** / **ib2f()** : int<->float coercion with bit parity
 *  **sinc()** : sinc (*sinus cardinalis*) function
 *  **besselI0()** : Bessel function
 *  **fplot()** : formattable console plot of any array
- 
+
 Quite a bit of this code is adapted from other sources, notably:
 *  [RTcmix Scorefile Commands](http://rtcmix.org/reference/scorefile/)
 *  [Robert Penner's Easing Functions](http://robertpenner.com/easing/)
@@ -46,11 +45,11 @@ Quite a bit of this code is adapted from other sources, notably:
 ```javascript
 var g = new p5.Gen(); // function generator object
 
-// evaluate the value 20% (0.2) into a wavetable 
+// evaluate the value 20% (0.2) into a wavetable
 // defined by harmonic strengths 1., 0.5, and 0.3:
 g.harmonics(0.2, [1.0, 0.5, 0.3]); // 1.0686135667536483
 
-// evaluate the value halfway (0.5) into a breakpoint function 
+// evaluate the value halfway (0.5) into a breakpoint function
 // rising from 0 to 1 then falling to 0:
 g.bpf(0.5, [0, 0, 1, 1, 2, 0]); // 1.
 
@@ -61,15 +60,15 @@ g.window(0.75, "hamming"); // 0.5400000000000001
 ```javascript
 var g = new p5.Gen(); // function generator object
 
-// assign 'foo' to a 512-point Array containing the wavetable 
+// assign 'foo' to a 512-point Array containing the wavetable
 // defined by harmonic strengths 1., 0.5, and 0.3:
 var foo = g.fillArray("harmonics", 512, [1.0, 0.5, 0.3]);
 
-// assign 'bar' to a 1000-point Float32Array containing a 
+// assign 'bar' to a 1000-point Float32Array containing a
 // single sine wave:
 var bar = g.fillFloat32Array("waveform", 1000, "sine");
 
-// assign 100 points of low-weighted random numbers to 
+// assign 100 points of low-weighted random numbers to
 // the Float64Array 'biz':
 var biz = g.fillFloat64Array("random", 100, "low");
 
@@ -85,11 +84,11 @@ fplot(biz, "color: blue; font-size:9px;"); // plot
 var e = new p5.Ease(); // easing function object
 e.listAlgos(); // return an array listing all the algorithms
 
-// calculate the value halfway (0.5) through 
+// calculate the value halfway (0.5) through
 // the 'circularIn' easing function:
 e.circularIn(0.5); // 0.1339745962155614
 
-// calculate the value a quarter (0.25) through 
+// calculate the value a quarter (0.25) through
 // the 'doubleCircularOgee' function with a coefficient of 0.5:
 e.doubleCircularOgee(0.25, 0.5); // 0.4330127018922193
 ```
@@ -97,15 +96,15 @@ e.doubleCircularOgee(0.25, 0.5); // 0.4330127018922193
 ```javascript
 var e = new p5.Ease(); // easing function object
 
-// assign 'foo' to a 10-point Array filled with 
+// assign 'foo' to a 10-point Array filled with
 // a "doubleQuadraticBezie" easing function:
 var foo = e.fillArray("doubleQuadraticBezier", 10);
 
-// assign 'bar' to a 100-point Float32Array filled with 
+// assign 'bar' to a 100-point Float32Array filled with
 // a "smoothStep" easing function:
 var bar = e.fillFloat32Array("smoothStep", 100);
 
-// assign a 1000-point "doubleCircularSigmoid" with 
+// assign a 1000-point "doubleCircularSigmoid" with
 // a coefficient of 0.8 to the Float64Array 'biz':
 var biz = e.fillFloat64Array("doubleCircularSigmoid", 1000, 0.8);
 
@@ -121,13 +120,13 @@ fplot(biz, "color: blue; font-size:9px;"); // plot
 var a = new p5.ArrayEval(); // array evaluation object
 
 // 10-point 'normal map' (0 to 1):
-var foo = a.eval('u', 10); 
+var foo = a.eval('u', 10);
 
 // 20x20 two-dimensional signed normal map (-1 to 1):
-var bar = a.eval2d(['su', 'sv'], 20, 20); 
+var bar = a.eval2d(['su', 'sv'], 20, 20);
 
 // 8x8x8 array with a volumetric distance function:
-var biz = a.eval3d('sqrt(su*su+sv*sv+sw*sw)', 8, 8, 8); 
+var biz = a.eval3d('sqrt(su*su+sv*sv+sw*sw)', 8, 8, 8);
 
 console.log(foo); // print
 console.log(bar); // print
@@ -136,9 +135,9 @@ console.log(biz); // print
 ### p5.Filt Example
 ```javascript
 // filter object with math calibrated to a 60Hz sampling rate:
-var f = new p5.Filt(60); 
+var f = new p5.Filt(60);
 // lowpass filter with a cutoff frequency of 3Hz and a Q of 0.7:
-f.set("lowpass", 3, 0.7); 
+f.set("lowpass", 3, 0.7);
 
 var ip = new Array(100); // input array
 var op = new Array(100); // output array
@@ -157,7 +156,7 @@ fplot(op, "color: blue; font-size:9px;"); // plot
 ### p5.FastFourierTransform Example
 ```javascript
 // 512-point FFT calibrated to a 60Hz sampling rate:
-var fft = new p5.FastFourierTransform(512, 60); 
+var fft = new p5.FastFourierTransform(512, 60);
 var g = new p5.Gen(); // function generator object
 
 var ip = g.fillArray("waveform", 512, "saw"); // input array
@@ -250,9 +249,9 @@ For all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 
 * **linear(x)** / **doubleLinear(x, a, b)** / **tripleLinear(x, a, b, c, d)** / **generalizedLinearMap(x, a, b, c, d)** / **quadraticIn(x)** / **quadraticOut(x)** / **quadraticInOut(x)** / **doubleQuadraticBezier(x, a, b, c, d)** / **doubleQuadraticSigmoid(x)** / **quadraticBezier(x, a, b)** / **quadraticBezierStaircase(x, a, n)** / **cubicIn(x)** / **cubicOut(x)** / **cubicInOut(x)** / **brycesCubic(x, n)** / **cubicBezier(x, a, b, c, d)** / **cubicBezierThrough2Points(x, a, b, c, d)** / **doubleCubicOgee(x, a, b)** / **doubleCubicOgeeSimplified(x, a, b)** / **quarticIn(x)** / **quarticOut(x)** / **quarticInOut(x)** / **generalizedQuartic(x, a, b)** / **quinticIn(x)** / **quinticOut(x)** / **quinticInOut(x)** / **sineIn(x)** / **sineOut(x)** / **sineInOut(x)** / **dampedSinusoid(x, a)** / **dampedSinusoidReverse(x, a)** / **circularIn(x)** / **circularOut(x)** / **circularInOut(x)** / **doubleCircularOgee(x, a)** / **doubleCircularSigmoid(x, a)** / **circularArcThroughAPoint(x, a, b)** / **circularFillet(x, a, b, c)** / **exponentialIn(x)** / **exponentialOut(x)** / **exponentialInOut(x)** / **exponentialEmphasis(x, a)** / **exponentialSmoothedStaircase(x, a, n)** / **elasticIn(x)** / **elasticOut(x)** / **elasticInOut(x)** / **backIn(x)** / **backOut(x)** / **backInOut(x)** / **bounceIn(x)** / **bounceOut(x)** / **bounceInOut(x)** / **doubleExponentialOgee(x, a)** / **doubleExponentialSigmoid(x, a)** / **adjustableCenterDoubleExponentialSigmoid(x, a, b)** / **doubleOddPolynomialOgee(x, a, b, n)** / **doublePolynomialSigmoid(x, n)** / **doubleEllipticOgee(x, a, b)** / **doubleEllipticSigmoid(x, a, b)** / **doubleSquircularOgee(x, a, n)** / **doubleSquircularSigmoid(x, a, n)** / **boxcar(x)** / **gompertz(x, a)** / **catmullRomInterpolate(x, a, b)** / **parabolaThroughAPoint(x, a, b)** / **hermite(x, a, b, c, d)** / **hermite2(x, a, b, c, d)** / **fastSquareRoot(x)** / **iterativeSquareRoot(x)** / **cosineApproximation(x)** / **maclaurinCosine(x)** / **raisedInvertedCosine(x)** / **generalSigmoidLogitCombo(x, a, b)** / **normalizedLogitSigmoid(x, a)** / **normalizedLogit(x, a)** / **staircase(x, n)** / **variableStaircase(x, a, n)** / **smoothStep(x)** / **smootherStep(x)** / **normalizedErf(x)** / **normalizedInverseErf(x)**
 * **listAlgos()**: lists available easing functions.
-* **fillArray(algo, len, args)**: evaluates an easing function on an Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("doubleLinear", "sineOut", etc.); *len* is the length of the Array to return; *args* are the arguments to the algorithm, if needed. 
-* **fillFloat32Array(algo, len, args)**: evaluates an easing function on a Float32Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("doubleLinear", "sineOut", etc.); *len* is the length of the Float32Array to return; *args* are the arguments to the algorithm, if needed. 
-* **fillFloat64Array(algo, len, args)**: evaluates an easing function on an Float64Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("doubleLinear", "sineOut", etc.); *len* is the length of the Float64Array to return; *args* are the arguments to the algorithm, if needed. 
+* **fillArray(algo, len, args)**: evaluates an easing function on an Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("doubleLinear", "sineOut", etc.); *len* is the length of the Array to return; *args* are the arguments to the algorithm, if needed.
+* **fillFloat32Array(algo, len, args)**: evaluates an easing function on a Float32Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("doubleLinear", "sineOut", etc.); *len* is the length of the Float32Array to return; *args* are the arguments to the algorithm, if needed.
+* **fillFloat64Array(algo, len, args)**: evaluates an easing function on an Float64Array of numbers where *x* is set to a normal map of the function range (0 to 1). *algo* sets the algorithm ("doubleLinear", "sineOut", etc.); *len* is the length of the Float64Array to return; *args* are the arguments to the algorithm, if needed.
 
 ### p5.ArrayEval
 
@@ -278,7 +277,7 @@ For all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 * **setFreq(f0)**: set the center / cutoff frequency of the filter.
 * **setQ(Q)**: set the *Q* of the filter.
 * **setBW(bw)**: set the bandwidth of the filter (computes the *Q*).
-* **setGain(dB)**: sets the gain (in decibels) of the filter. 
+* **setGain(dB)**: sets the gain (in decibels) of the filter.
 * **clear()**: clears/resets the sample memory in the filter.
 * **coeffs(a0, b0, b1, b2, a1, a2)**: sets the coefficients of the biquad "by hand".
 * **precalc()**: precompute the filter coefficients (a0, b0, etc.) based on the filter parameters (type, f0, Q, dB)
@@ -307,16 +306,17 @@ For all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 * **imap(x, a, b, c, d)**: constrainted integer mapping function; great for Array index lookups originating from a continuous input. *x* is the input. *a* and *b* are the minimum and maximum range of the expected input. *c* and *d* are the range of the output. Syntatically equivalent to the **map()** function in p5.
 * **wrap(x, min, max)** : wrap value *x* between *min* and *max*. Similar to the modulo operator with offset, but works as expected with negative values.
 * **fold(x, min, max)** : fold (reflect) value *x* between *min* and *max*. Values out of range will be folded / reflected back in range, alternating between a wrapped and an inverted wrapped value.
-* **pickrand(array)** : return a random element from *array*.
 * **createArray(len)**: return an n-dimensional Array of length *len*, where *len* can be a list of arguments.
 * **normalizeArray(array)**: returns a *normalized* copy of an array (where the absolute maximum value is 1.0).
 * **resizeArray(array, newlen)**: returns a copy of *array* resized to length *newlen*. Upsampling is done by linear interpolation.
 * **multiplyArray(array1, array2)**: multiplies two arrays into a new array.
 * **addArray(array1, array2)**: adds two arrays into a new array.
+* **subtractArray(array1, array2)**: returns the difference of two arrays.
+* **divideArray(array1, array2)**: returns the division of two arrays.
+* **moduloArray(array1, array2)**: returns the remainder of the division of two arrays.
 * **sumArray(array)**: returns the sum of *array*.
 * **f2ib(x)**: float->int coercion with bit parity.
 * **ib2f(x)**: int->float coercion with bit parity.
 * **sinc(x)**: sinc (*sinus cardinalis*) function. Returns f(x).
 * **besselI0(x)**: Bessel function. Returns f(x).
 * **fplot(array, css)**: formattable console plot of any *array*. *css* parameters are passed as a string to the Javascript console object.
-

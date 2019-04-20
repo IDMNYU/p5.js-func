@@ -14,7 +14,7 @@ function setup()
 {
   createCanvas(800, 600);
 
-  curstyle = pickrand(styles);
+  curstyle = random(styles);
 
   tb = createDiv('');
   tb.style("font-family", "Courier");
@@ -57,6 +57,6 @@ function draw()
 
 function keyTyped()
 {
-  curstyle = pickrand(styles);
+  curstyle = random(styles);
   tab = ease.fillArray(curstyle, 512);
 }

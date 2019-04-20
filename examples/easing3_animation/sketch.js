@@ -20,7 +20,7 @@ function setup()
   background(255);
   fill(0);
 
-  curstyle = pickrand(styles);
+  curstyle = random(styles);
 
   x = width/2;
   y = height/2;
@@ -84,7 +84,7 @@ function draw()
 
 function mousePressed()
 {
-  curstyle = pickrand(styles);
+  curstyle = random(styles);
   x = px;
   y = py;
   tx = mouseX;

@@ -1,7 +1,7 @@
-// p5.func examples - fourier1_plot
+// p5.func examples - fourier2_plot2
 // I<3DM rld
 
-var mic, p5fft;
+var mic, wf;
 
 
 var SPF = 1024; // samples per frame
@@ -23,6 +23,7 @@ for(let i = 0;i<phasedelta.length;i++)
 
 var tb; // textbox
 
+
 function setup()
 {
   createCanvas(800, 600);
@@ -33,19 +34,14 @@ function setup()
 
   x = 0;
 
-  mic = new p5.AudioIn();
-  mic.start();
-  p5fft = new p5.FFT(0, 1024);
-  p5fft.setInput(mic);
-
+  mic = new Tone.UserMedia();
+  mic.open();
+  wf = new Tone.Waveform(SPF);
+  mic.connect(wf);
 
   fft = new p5.FastFourierTransform(FFTSIZE, FS);
 
   gen = new p5.Gen();
-
-  //sig = gen.fillArray('random', FFTSIZE);
-  //sig = gen.fillArray('harmonics', FFTSIZE, [0, 0, 0, 0, 1., 0, 0, 0, 1]);
-  //sig = gen.fillArray('waveform', FFTSIZE, 'square');
 
   win = gen.fillArray('window', FFTSIZE, 'hanning');
 
@@ -58,12 +54,12 @@ function setup()
 
 function draw()
 {
-  sig = p5fft.waveform(); // get the time domain values from an audio input
+  sig = wf.getValue(); // get the time domain values from an audio input
   //console.log(sig);
   fft.forward(multiplyArray(sig, win));
-  var temp = multiplyArray(fft.phase, -1);
-  phasedelta = addArray(phasedelta, temp); // compute running phase
-  //console.log(phasedelta);
+  var temp = Array.from(fft.phase);
+  phasedelta = subtractArray(phasedelta, temp); // compute running phase
+  phasedelta = moduloArray(phasedelta, PI);
   // look here for how to compute instantaneous frequency:
   // https://dsp.stackexchange.com/questions/24487/calculate-and-interpret-the-instantaneous-frequency
 
@@ -77,13 +73,43 @@ function draw()
   fill(240);
   rect(width*0.1, height*0.2, width*0.8, height*0.7);
 
+  var peaks = new Array(10);
+  for(var i = 0;i<peaks.length;i++)
+  {
+    peaks[i] = 0;
+  }
+  // find 10 biggest
+  spectsort = new Array(fft.spectrum.length);
+  for(var i =0;i<spectsort.length;i++)
+  {
+    var p = new Array();
+    p[0] = fft.spectrum[i].toFixed(6);
+    p[1] = i;
+    spectsort[i] = p;
+  }
+  spectsort.sort();
+  spectsort.reverse();
+  var topten = new Array(10);
+  for(var i =0;i<10;i++)
+  {
+    topten[i] = spectsort[i][1];
+  }
+  //console.log(topten);
+
+  stroke(0);
   noFill();
   beginShape();
   for(var i in fft.spectrum)
   {
-    var xs = map(i, 0, fft.spectrum.length-1, width*0.1, width*0.9);
-    var ys = map(sqrt(fft.spectrum[i]), 0, sqrt(fft.peak), height*0.9, height*0.2);
+    var xlog = sqrt(map(i, 0, fft.spectrum.length-1, 0., 1.));
+    var xs = map(xlog, 0, 1, width*0.1, width*0.9);
+    var ys = map(sqrt(fft.spectrum[i]), 0, 0.707, height*0.9, height*0.2);
     vertex(xs, ys);
+    noFill();
+    for(var j in topten)
+    {
+      if(i==topten[j]) fill(255, 0, 0);
+    }
     ellipse(xs, ys, 5, 5);
   }
   endShape();

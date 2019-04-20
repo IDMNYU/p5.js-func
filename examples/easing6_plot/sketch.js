@@ -50,12 +50,12 @@ function setup()
   h_u = height*0.8;
   sc = 0.4;
 
-  a_algo = pickrand(styles);
-  b_algo = pickrand(styles);
-  c_algo = pickrand(styles);
-  d_algo = pickrand(styles);
-  e_algo = pickrand(styles);
-  f_algo = pickrand(styles);
+  a_algo = random(styles);
+  b_algo = random(styles);
+  c_algo = random(styles);
+  d_algo = random(styles);
+  e_algo = random(styles);
+  f_algo = random(styles);
 
   tb = createDiv('');
   tb.style("font-family", "Courier");
@@ -117,37 +117,37 @@ function draw()
   a_tab = e.fillArray(a_algo, 1024);
   translate(0, 0);
   drawTab(a_tab, a_algo, a_np, a_div);
-  if(frameCount%120==0) a_algo = pickrand(styles);
+  if(frameCount%120==0) a_algo = random(styles);
 
   //2
   b_tab = e.fillArray(b_algo, b_np);
   translate(w_u, 0);
   drawTab(b_tab, b_algo, b_np, b_div);
-  if(frameCount%120==0) b_algo = pickrand(styles);
+  if(frameCount%120==0) b_algo = random(styles);
 
   //3
   c_tab = e.fillArray(c_algo, c_np);
   translate(-w_u, h_u);
   drawTab(c_tab, c_algo, c_np, c_div);
-  if(frameCount%120==0) c_algo = pickrand(styles);
+  if(frameCount%120==0) c_algo = random(styles);
 
   //4
   d_tab = e.fillArray(d_algo, d_np);
   translate(w_u, 0);
   drawTab(d_tab, d_algo, d_np, d_div);
-  if(frameCount%120==0) d_algo = pickrand(styles);
+  if(frameCount%120==0) d_algo = random(styles);
 
   //5
   e_tab = e.fillArray(e_algo, e_np);
   translate(w_u, 0);
   drawTab(e_tab, e_algo, e_np, e_div);
-  if(frameCount%120==0) e_algo = pickrand(styles);
+  if(frameCount%120==0) e_algo = random(styles);
 
   //6
   f_tab = e.fillArray(f_algo, f_np);
   translate(0, -h_u);
   drawTab(f_tab, f_algo, f_np, f_div);
-  if(frameCount%120==0) f_algo = pickrand(styles);
+  if(frameCount%120==0) f_algo = random(styles);
 
   a_np = 1+(a_np+1) % 1024;
   b_np = 1+(b_np+1) % 1024;

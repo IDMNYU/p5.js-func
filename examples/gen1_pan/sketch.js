@@ -16,7 +16,7 @@ function setup()
   createCanvas(800, 600);
   fill(255);
 
-  curstyle = pickrand(styles);
+  curstyle = random(styles);
 
   osc1 = new p5.Oscillator();
   osc1.setType('sine');
@@ -70,6 +70,6 @@ function draw()
   osc1.pan(pan1);
   osc2.pan(pan2);
 
-  if(p+speed>1.) curstyle = pickrand(styles);
+  if(p+speed>1.) curstyle = random(styles);
   p=(p+speed)%1.;
 }

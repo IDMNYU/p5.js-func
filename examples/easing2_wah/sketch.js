@@ -16,7 +16,7 @@ function setup()
   createCanvas(800, 600);
   doclear = 1;
 
-  curstyle = pickrand(styles);
+  curstyle = random(styles);
 
   filt = new p5.LowPass();
   filt.res(20);
@@ -49,7 +49,7 @@ function draw()
 {
   if(doclear)
   {
-    curstyle = pickrand(styles);
+    curstyle = random(styles);
     background(255);
     noStroke();
     fill(215);
