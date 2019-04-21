@@ -151,7 +151,7 @@ function draw()
   {
     var xlog = sqrt(map(i, 0, fft.magnitude.length-1, 0., 1.));
     var xs = map(xlog, 0, 1, width*0.1, width*0.9);
-    var ys = map(sqrt(fft.magnitude[i]), 0, 1, height*0.9, height*0.2);
+    var ys = map(sqrt(fft.magnitude[i]), 0, sqrt(0.5), height*0.9, height*0.2);
     vertex(xs, ys);
     noFill();
     rad = 5;
