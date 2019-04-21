@@ -1,30 +1,21 @@
 // p5.func examples - fourier2_plot2
 // I<3DM rld
 
-var mic, synth, wf;
+var mic, synth, node; // audio objects, including a script processor
 
 var FS = 44100; // sampling rate
 var FFTSIZE = 1024; // FFT size
+var HOPSIZE = 1024; // FFT hop size (todo: overlap)
 var WINDOWFUNC = 'hanning'; // window type
 
-var x; // sig pointer
-var gen;
+var fft, gen; // p5.fun objects
 
 var sig = new Array(FFTSIZE); // collector signal (input)
 var win = new Array(FFTSIZE); // window function
 
-var fft;
-var phasedelta = new Array(FFTSIZE); // array for running phase
-var prevphase = new Array(FFTSIZE); // array for previous phase
-for(let i = 0;i<phasedelta.length;i++)
-{
-  phasedelta[i] = 0;
-  prevphase[i] = 0;
-}
-
 var tb, tl; // textboxes
+
 var pitch = 48;
-var node;
 var freq = 440;
 
 function setup()
@@ -35,20 +26,23 @@ function setup()
 
   textSize(18);
 
-  x = 0;
-
+  // tone.js stuff:
   mic = new Tone.UserMedia();
   mic.open();
   synth = new Tone.Oscillator();
   synth.type = "sawtooth";
   synth.start();
 
-  fft = new p5.FastFourierTransform(FFTSIZE, FS);
+  // p5.func objects:
+
+  // FFT
+  fft = new p5.FastFourierTransform(FFTSIZE, FS, HOPSIZE);
   fft.doFrequency = true;
-
+  // GEN for window functions:
   gen = new p5.Gen();
-
   win = gen.fillArray('window', FFTSIZE, WINDOWFUNC);
+
+  // p5.dom stuff:
 
   tb = createDiv('');
   tb.style("font-family", "Courier");
@@ -63,6 +57,7 @@ function setup()
   tl.position(width*0.91, height*0.2);
   tl.size(500, 500);
 
+  // script processor for p5.FastFourierTranform() :
   node = Tone.context.createScriptProcessor(FFTSIZE, 1, 1);
   node.onaudioprocess = function (e) {
     //console.log(e);
@@ -91,12 +86,7 @@ function draw()
   fill(240);
   rect(width*0.1, height*0.2, width*0.8, height*0.7);
 
-  var peaks = new Array(10);
-  for(var i = 0;i<peaks.length;i++)
-  {
-    peaks[i] = 0;
-  }
-  // find 10 biggest
+  // find 10 biggest partials:
   spectsort = new Array(fft.magnitude.length);
   for(var i =0;i<spectsort.length;i++)
   {
@@ -110,6 +100,7 @@ function draw()
   var topten = new Array(10);
   for(var i =0;i<10;i++)
   {
+    // copy data into local struct:
     var tt = {};
     tt.index = spectsort[i][1];
     tt.mag = spectsort[i][0];
