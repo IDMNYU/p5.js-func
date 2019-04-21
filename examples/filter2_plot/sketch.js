@@ -179,19 +179,19 @@ function drawFFTandClear()
 
   noFill();
   beginShape();
-  for(var i in ifft.spectrum)
+  for(var i in ifft.magnitude)
   {
-    var xs = map(i, 0, ifft.spectrum.length-1, width*0.6, width*0.95);
-    var ys = map(sqrt(ifft.spectrum[i]), 0, sqrt(ifft.peak), height*0.4, height*0.2);
+    var xs = map(i, 0, ifft.magnitude.length-1, width*0.6, width*0.95);
+    var ys = map(sqrt(ifft.magnitude[i]), 0, sqrt(ifft.peak), height*0.4, height*0.2);
     vertex(xs, ys);
   }
   endShape();
 
   beginShape();
-  for(var i in offt.spectrum)
+  for(var i in offt.magnitude)
   {
-    var xs = map(i, 0, offt.spectrum.length-1, width*0.6, width*0.95);
-    var ys = map(sqrt(offt.spectrum[i]), 0, sqrt(offt.peak), height*0.8, height*0.6);
+    var xs = map(i, 0, offt.magnitude.length-1, width*0.6, width*0.95);
+    var ys = map(sqrt(offt.magnitude[i]), 0, sqrt(offt.peak), height*0.8, height*0.6);
     vertex(xs, ys);
   }
   endShape();
