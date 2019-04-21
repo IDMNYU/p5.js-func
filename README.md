@@ -22,7 +22,7 @@ The library also contains a number of utility functions for p5:
 *  **imap()** : constrainted integer mapping function
 *  **wrap()** : wrapping function
 *  **fold()** : folding function
-*  **createArray()** / **normalizeArray()** / **resizeArray()** / **multiplyArray()** / **addArray()** / **subtractArray** / **divideArray** / **moduloArray** / **sumArray()** : array utility functions
+*  **createArray()** / **normalizeArray()** / **resizeArray()** / **multiplyArray()** / **addArray()** / **subtractArray()** / **divideArray()** / **moduloArray()** / **sumArray()** : array utility functions
 *  **f2ib()** / **ib2f()** : int<->float coercion with bit parity
 *  **sinc()** : sinc (*sinus cardinalis*) function
 *  **besselI0()** : Bessel function
