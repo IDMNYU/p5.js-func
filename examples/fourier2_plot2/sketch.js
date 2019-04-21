@@ -1,12 +1,11 @@
 // p5.func examples - fourier2_plot2
 // I<3DM rld
 
-var mic, wf;
+var mic, synth, wf;
 
-
-var SPF = 1024; // samples per frame
-var FS = 44100;
-var FFTSIZE = SPF;
+var FS = 44100; // sampling rate
+var FFTSIZE = 1024; // FFT size
+var WINDOWFUNC = 'hanning'; // window type
 
 var x; // sig pointer
 var gen;
@@ -15,14 +14,18 @@ var sig = new Array(FFTSIZE); // collector signal (input)
 var win = new Array(FFTSIZE); // window function
 
 var fft;
-var phasedelta = new Array(FFTSIZE);
+var phasedelta = new Array(FFTSIZE); // array for running phase
+var prevphase = new Array(FFTSIZE); // array for previous phase
 for(let i = 0;i<phasedelta.length;i++)
 {
   phasedelta[i] = 0;
+  prevphase[i] = 0;
 }
 
-var tb; // textbox
-
+var tb, tl; // textboxes
+var pitch = 48;
+var node;
+var freq = 440;
 
 function setup()
 {
@@ -36,39 +39,54 @@ function setup()
 
   mic = new Tone.UserMedia();
   mic.open();
-  wf = new Tone.Waveform(SPF);
-  mic.connect(wf);
+  synth = new Tone.Oscillator();
+  synth.type = "sawtooth";
+  synth.start();
 
   fft = new p5.FastFourierTransform(FFTSIZE, FS);
+  fft.doFrequency = true;
 
   gen = new p5.Gen();
 
-  win = gen.fillArray('window', FFTSIZE, 'hanning');
+  win = gen.fillArray('window', FFTSIZE, WINDOWFUNC);
 
   tb = createDiv('');
   tb.style("font-family", "Courier");
   tb.style("font-size", "12px");
   tb.position(width*0.1, height*0.1);
   tb.size(500, 500);
+
+  tl = createDiv('');
+  tl.style("font-family", "Courier");
+  tl.style("font-size", "12px");
+  tl.style("align", "right");
+  tl.position(width*0.91, height*0.2);
+  tl.size(500, 500);
+
+  node = Tone.context.createScriptProcessor(FFTSIZE, 1, 1);
+  node.onaudioprocess = function (e) {
+    //console.log(e);
+    sig = e.inputBuffer.getChannelData(0);
+    fft.forward(multiplyArray(sig, win));
+
+    // update synthesizer:
+    freq = Tone.Midi(pitch).toFrequency();
+    //freq = fft.getBandFrequency(10) + 120.5;
+    //freq = 1000;
+    synth.frequency.value = freq;
+    if(frameCount%100==0) {
+      pitch=pitch+1;
+      if(pitch>96) pitch=48;
+    }
+  };
+  Tone.connect(node, Tone.context.destination, [inputNum=0], [outputNum=0]);
+  //Tone.connect(mic, node, [inputNum=0], [outputNum=0]);
+  Tone.connect(synth, node, [inputNum=0], [outputNum=0]);
 }
 
 function draw()
 {
-  sig = wf.getValue(); // get the time domain values from an audio input
-  //console.log(sig);
-  fft.forward(multiplyArray(sig, win));
-  var temp = Array.from(fft.phase);
-  phasedelta = subtractArray(phasedelta, temp); // compute running phase
-  phasedelta = moduloArray(phasedelta, PI);
-  // look here for how to compute instantaneous frequency:
-  // https://dsp.stackexchange.com/questions/24487/calculate-and-interpret-the-instantaneous-frequency
-
   background(255);
-
-  var hs = '';
-  hs+= 'p5.Fourier()<br><br>';
-  hs+= 'signal peak: ' + fft.getBandFrequency(fft.peakBand).toFixed(4) + 'Hz at ' + fft.peak.toFixed(4);
-  tb.html(hs);
 
   fill(240);
   rect(width*0.1, height*0.2, width*0.8, height*0.7);
@@ -79,11 +97,11 @@ function draw()
     peaks[i] = 0;
   }
   // find 10 biggest
-  spectsort = new Array(fft.spectrum.length);
+  spectsort = new Array(fft.magnitude.length);
   for(var i =0;i<spectsort.length;i++)
   {
     var p = new Array();
-    p[0] = fft.spectrum[i].toFixed(6);
+    p[0] = fft.magnitude[i].toFixed(6);
     p[1] = i;
     spectsort[i] = p;
   }
@@ -92,25 +110,47 @@ function draw()
   var topten = new Array(10);
   for(var i =0;i<10;i++)
   {
-    topten[i] = spectsort[i][1];
+    var tt = {};
+    tt.index = spectsort[i][1];
+    tt.mag = spectsort[i][0];
+    tt.phase = fft.phase[tt.index];
+    tt.cf = fft.getBandFrequency(tt.index);
+    tt.runningphase = fft.runningphase[tt.index];
+    tt.freq = fft.frequency[tt.index];
+    topten[i] = tt;
   }
   //console.log(topten);
 
   stroke(0);
   noFill();
+  let rad=5;
+  var ts = 'top ten:<br>';
   beginShape();
-  for(var i in fft.spectrum)
+  for(var i in fft.magnitude)
   {
-    var xlog = sqrt(map(i, 0, fft.spectrum.length-1, 0., 1.));
+    var xlog = sqrt(map(i, 0, fft.magnitude.length-1, 0., 1.));
     var xs = map(xlog, 0, 1, width*0.1, width*0.9);
-    var ys = map(sqrt(fft.spectrum[i]), 0, 0.707, height*0.9, height*0.2);
+    var ys = map(sqrt(fft.magnitude[i]), 0, 0.707, height*0.9, height*0.2);
     vertex(xs, ys);
     noFill();
+    rad = 5;
     for(var j in topten)
     {
-      if(i==topten[j]) fill(255, 0, 0);
+      if(i==topten[j].index) {
+        fill(255, 0, 0);
+        ts+=topten[j].freq.toFixed(3)+'<br>';
+        rad = 10;
+      }
     }
-    ellipse(xs, ys, 5, 5);
+    ellipse(xs, ys, rad, rad);
   }
   endShape();
+  tl.html(ts);
+
+  var hs = '';
+  hs+= 'p5.FastFourierTransform()<br>';
+  hs+= 'loudest partial:<br>';
+  hs+= 'actual: ' + freq.toFixed(3) + ' est: ' + topten[0].freq.toFixed(3) + ' r: ' + topten[0].mag + ' θΔ: ' + topten[0].runningphase.toFixed(3);
+  tb.html(hs);
+
 }

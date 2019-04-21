@@ -53,7 +53,7 @@ function draw()
   background(255);
 
   var hs = '';
-  hs+= 'p5.Fourier()<br><br>';
+  hs+= 'p5.FastFourierTransform()<br><br>';
   hs+= 'signal peak: ' + fft.getBandFrequency(fft.peakBand).toFixed(4) + 'Hz at ' + fft.peak.toFixed(4);
   tb.html(hs);
 
@@ -62,10 +62,10 @@ function draw()
 
   noFill();
   beginShape();
-  for(var i in fft.spectrum)
+  for(var i in fft.magnitude)
   {
-    var xs = map(i, 0, fft.spectrum.length-1, width*0.1, width*0.9);
-    var ys = map(sqrt(fft.spectrum[i]), 0, sqrt(fft.peak), height*0.9, height*0.2);
+    var xs = map(i, 0, fft.magnitude.length-1, width*0.1, width*0.9);
+    var ys = map(sqrt(fft.magnitude[i]), 0, sqrt(fft.peak), height*0.9, height*0.2);
     vertex(xs, ys);
     ellipse(xs, ys, 5, 5);
   }
