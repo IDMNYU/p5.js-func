@@ -14,6 +14,7 @@ var sig = new Array(FFTSIZE); // collector signal (input)
 var win = new Array(FFTSIZE); // window function
 
 var tb, tl; // textboxes
+var sel1, sel2, sel3; // menus
 
 var pitch = 48;
 var freq = 440;
@@ -57,6 +58,37 @@ function setup()
   tl.position(width*0.91, height*0.2);
   tl.size(500, 500);
 
+  // menu:
+  sel1 = createSelect();
+  sel1.position(width*0.91, height*0.5);
+  sel1.option('mic');
+  sel1.option('synth');
+  sel1.value('synth');
+  sel1.changed(inputMenu);
+  // menu:
+  sel2 = createSelect();
+  sel2.position(width*0.91, height*0.55);
+  sel2.option('sine');
+  sel2.option('triangle');
+  sel2.option('square');
+  sel2.option('sawtooth');
+  sel2.value('sawtooth');
+  sel2.changed(synthMenu);
+  // menu:
+  sel3 = createSelect();
+  sel3.position(width*0.91, height*0.6);
+  sel3.option('hamming');
+  sel3.option('vonhann');
+  sel3.option('bartlett');
+  sel3.option('blackman');
+  sel3.option('blackman-harris');
+  sel3.option('gaussian');
+  sel3.option('kaiser');
+  sel3.option('rectangle');
+  sel3.option('sinc');
+  sel3.value('vonhann');
+  sel3.changed(winMenu);
+
   // script processor for p5.FastFourierTranform() :
   node = Tone.context.createScriptProcessor(FFTSIZE, 1, 1);
   node.onaudioprocess = function (e) {
@@ -69,10 +101,8 @@ function setup()
     //freq = fft.getBandFrequency(10) + 120.5;
     //freq = 1000;
     synth.frequency.value = freq;
-    if(frameCount%100==0) {
-      pitch=pitch+1;
-      if(pitch>96) pitch=48;
-    }
+    pitch=pitch+0.05;
+    if(pitch>96) pitch=48;
   };
   Tone.connect(node, Tone.context.destination, [inputNum=0], [outputNum=0]);
   //Tone.connect(mic, node, [inputNum=0], [outputNum=0]);
@@ -121,7 +151,7 @@ function draw()
   {
     var xlog = sqrt(map(i, 0, fft.magnitude.length-1, 0., 1.));
     var xs = map(xlog, 0, 1, width*0.1, width*0.9);
-    var ys = map(sqrt(fft.magnitude[i]), 0, 0.707, height*0.9, height*0.2);
+    var ys = map(sqrt(fft.magnitude[i]), 0, 1, height*0.9, height*0.2);
     vertex(xs, ys);
     noFill();
     rad = 5;
@@ -141,7 +171,31 @@ function draw()
   var hs = '';
   hs+= 'p5.FastFourierTransform()<br>';
   hs+= 'loudest partial:<br>';
-  hs+= 'actual: ' + freq.toFixed(3) + ' est: ' + topten[0].freq.toFixed(3) + ' r: ' + topten[0].mag + ' θΔ: ' + topten[0].runningphase.toFixed(3);
+  if(sel1.value()=='mic') hs+= 'est: ' + topten[0].freq.toFixed(3) + ' r: ' + topten[0].mag + ' θΔ: ' + topten[0].runningphase.toFixed(3);
+  if(sel1.value()=='synth') hs+= 'actual: ' + freq.toFixed(3) + ' est: ' + topten[0].freq.toFixed(3) + ' r: ' + topten[0].mag + ' θΔ: ' + topten[0].runningphase.toFixed(3);
   tb.html(hs);
 
+}
+
+function inputMenu()
+{
+  if(sel1.value()=='mic') {
+    Tone.disconnect(synth, node);
+    Tone.connect(mic, node, [inputNum=0], [outputNum=0]);
+  }
+  if(sel1.value()=='synth') {
+    Tone.disconnect(mic, node);
+    Tone.connect(synth, node, [inputNum=0], [outputNum=0]);
+  }
+}
+
+function synthMenu()
+{
+  synth.type = sel2.value();
+}
+
+function winMenu()
+{
+  WINDOWFUNC = sel3.value();
+  win = gen.fillArray('window', FFTSIZE, WINDOWFUNC);
 }
