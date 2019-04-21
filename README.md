@@ -183,6 +183,7 @@ fplot(op, "color: green; font-size:9px;"); // plot
 * [p5.Filt() Smoothing Values](https://idmnyu.github.io/p5.js-func/examples/filter1_smooth) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/filter1_smooth/sketch.js)
 * [p5.Filt() Interactive Filter](https://idmnyu.github.io/p5.js-func/examples/filter2_plot) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/filter2_plot/sketch.js)
 * [p5.Fourier() Example](https://idmnyu.github.io/p5.js-func/examples/fourier1_plot) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/fourier1_plot/sketch.js)
+* [p5.Fourier() Audio Example](https://idmnyu.github.io/p5.js-func/examples/fourier2_plot) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/fourier2_plot/sketch.js)
 
 ## Reference
 
@@ -286,24 +287,30 @@ For all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 ### p5.FastFourierTransform
 
 *constructor*
-* *bufsize*: FFT buffer size (default=512)
-* *fs*: sampling rate (default=60)
+* *bufsize*: FFT buffer size (default=512).
+* *fs*: sampling rate (default=60).
+* *hopsize*: hop size (default=buffer size).
 
 *methods*
 * **forward(buffer)**: compute a forward transform (FFT) on the time-domain signal in the *buffer*. Fills the *real*, *imaginary*, *spectrum*, and *phase* Arrays in the object.
 * **inverse(real, imag)**: compute an inverse transform (IFFT) on the frequency-domain data in the *real* and *imag* Arrays. If no arguments are supplied, it will use the *real* and *imag* data stored in the object from the last forward transform.
 * **calculateSpectrum()**: computes the amplitude (spectrum) and phase data from the real and imaginary.
+* **calculateFrequency()**: computes the instantaneous frequencies in the FFT analysis based on running phase.
 * **getBandFrequency(index)**: returns the center frequency of an FFT band based on its index.
 
 *properties*
-* *spectrum*: *Array* of current spectrum (amplitude) data.
+* *doSpectrum*: *boolean* to auto-calculate spectrum (mag/phase) (default=true).
+* *doFrequency*: *boolean* to auto-calculate instantaneous frequency from running phase (default=false).
+* *magnitude*: *Array* of current spectrum (amplitude) data.
 * *phase*: *Array* of current phase data.
 * *real*: *Array* containing real part of last FFT.
 * *imaginary*: *Array* containing imaginary part of last FFT.
+* *frequency*: *Array* of instantaneous frequencies.
+* *runningphase*: *Array* of phase deviation.
 
 ### Misc. Functions
 
-* **imap(x, a, b, c, d)**: constrainted integer mapping function; great for Array index lookups originating from a continuous input. *x* is the input. *a* and *b* are the minimum and maximum range of the expected input. *c* and *d* are the range of the output. Syntatically equivalent to the **map()** function in p5.
+* **imap(x, a, b, c, d)**: constrained integer mapping function; great for Array index lookups originating from a continuous input. *x* is the input. *a* and *b* are the minimum and maximum range of the expected input. *c* and *d* are the range of the output. Syntactically equivalent to the **map()** function in p5.
 * **wrap(x, min, max)** : wrap value *x* between *min* and *max*. Similar to the modulo operator with offset, but works as expected with negative values.
 * **fold(x, min, max)** : fold (reflect) value *x* between *min* and *max*. Values out of range will be folded / reflected back in range, alternating between a wrapped and an inverted wrapped value.
 * **createArray(len)**: return an n-dimensional Array of length *len*, where *len* can be a list of arguments.
@@ -311,9 +318,9 @@ For all easing functions, *x* is 0 to 1. Method returns f(x). Some methods have 
 * **resizeArray(array, newlen)**: returns a copy of *array* resized to length *newlen*. Upsampling is done by linear interpolation.
 * **multiplyArray(array1, array2)**: multiplies two arrays into a new array.
 * **addArray(array1, array2)**: adds two arrays into a new array.
-* **subtractArray(array1, array2)**: returns the difference of two arrays.
-* **divideArray(array1, array2)**: returns the division of two arrays.
-* **moduloArray(array1, array2)**: returns the remainder of the division of two arrays.
+* **subtractArray(array1, array2)**: subtracts two arrays into a new array.
+* **divideArray(array1, array2)**: divides two arrays into a new array.
+* **moduloArray(array1, array2)**: returns the remainder of the division of two arrays into a new array.
 * **sumArray(array)**: returns the sum of *array*.
 * **f2ib(x)**: float->int coercion with bit parity.
 * **ib2f(x)**: int->float coercion with bit parity.

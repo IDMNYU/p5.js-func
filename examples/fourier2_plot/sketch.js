@@ -1,4 +1,4 @@
-// p5.func examples - fourier2_plot2
+// p5.func examples - fourier2_plot
 // I<3DM rld
 
 var mic, synth, node; // audio objects, including a script processor
