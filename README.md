@@ -184,7 +184,7 @@ fplot(op, "color: green; font-size:9px;"); // plot
 * [p5.Filt() Interactive Filter](https://idmnyu.github.io/p5.js-func/examples/filter2_plot) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/filter2_plot/sketch.js)
 * [p5.Fourier() Example](https://idmnyu.github.io/p5.js-func/examples/fourier1_plot) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/fourier1_plot/sketch.js)
 * [p5.Fourier() Audio Example](https://idmnyu.github.io/p5.js-func/examples/fourier2_plot) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/fourier2_plot/sketch.js)
-* [p5.Fourier() Audio Resynthesis](https://idmnyu.github.io/p5.js-func/examples/fourier3_resynthesize) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/fourier2_resynthesize/sketch.js)
+* [p5.Fourier() Audio Resynthesis](https://idmnyu.github.io/p5.js-func/examples/fourier3_resynthesize) [(source)](https://github.com/IDMNYU/p5.js-func/blob/master/examples/fourier3_resynthesize/sketch.js)
 
 ## Reference
 
