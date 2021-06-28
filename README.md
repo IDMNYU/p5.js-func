@@ -162,7 +162,7 @@ var g = new p5.Gen(); // function generator object
 var ip = g.fillArray("waveform", 512, "saw"); // input array
 fft.forward(ip); // compute FFT
 
-var op = fft.spectrum; // output array (256 points of magnitude)
+var op = fft.magnitude; // output array (256 points of magnitude)
 console.log(op); // print
 fplot(op, "color: green; font-size:9px;"); // plot
 ```
